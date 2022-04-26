@@ -6,7 +6,7 @@ import LoginForm from '../src/components/LoginForm';
 const Home: NextPage = () => {
   return (
     <Container>
-        <h1>Регистрация</h1>
+        <h1 color="red">Регистрация</h1>
         <LoginForm/>
     </Container>
   )

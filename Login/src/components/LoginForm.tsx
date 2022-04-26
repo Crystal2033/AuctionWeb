@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "./Button";
 import Input from "./Input";
 
 type LoginInfo = {
@@ -23,13 +24,13 @@ const LoginForm = () => {
           setLoginData({ name: loginData.name, pass: value });
         }}
       />
-      <button className="btn"
+      <Button
         onClick={() => {
           console.log(loginData);
         }}
       >
-        Зарегистрироваться
-      </button>
+        OK
+      </Button>
     </div>
   );
 };
