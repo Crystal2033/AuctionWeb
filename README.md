@@ -1,1 +1,1 @@
-# DebugNextJsAuctionываывавыа
+# DebugNextJsAuction
