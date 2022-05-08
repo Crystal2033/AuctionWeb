@@ -1,14 +1,14 @@
 import styled from '@emotion/styled';
 import React, { useState } from 'react'
+import { login, signup } from '../api/authApi';
+import { getUserById } from '../api/mainApi';
 import InputLine from './InputLine'
 
 
 type LoginInfo = {
-    email: string;
-    password: string;
+    email?: string;
+    password?: string;
 }
-
-
 
 const RegButton = styled.button`
     font-family: sans-serif;
@@ -50,12 +50,22 @@ const LoginForm = () => {
 
     const clickAutho = () => {
 
-        console.log("Authorization");
-        console.log(loginData);
+        if (loginData?.email && loginData?.password) {
+            console.log("Authorization");
+            login(loginData.email, loginData.password).then((response) => {
+                console.log(response.data);
+            }).catch(console.error);
+        }
+
     }
     const clickRegister = () => {
-        console.log("Registration");
-        console.log(loginData);
+
+        if (loginData?.email && loginData?.password) {
+            console.log("Registration");
+            signup(loginData.email, loginData.password).then((response) => {
+                getUserById(response.data.id);
+            }).catch(console.error);
+        }
     }
 
     return (
@@ -68,7 +78,7 @@ const LoginForm = () => {
                 setLoginData({ email: loginData ? loginData.email : "", password: value })
             }} />
             {/* <PassShowButton></PassShowButton> */}
-            {(!loginData?.email || !loginData?.password) ? <RegButton onClick={(clickAutho)} disabled>Войти</RegButton> : <RegButton onClick={clickAutho}>Войти</RegButton>}
+            {(!loginData?.email || !loginData?.password) ? <RegButton onClick={clickAutho} disabled>Войти</RegButton> : <RegButton onClick={clickAutho}>Войти</RegButton>}
             {(!loginData?.email || !loginData?.password) ? <RegButton onClick={clickRegister} disabled>Зарегистрироваться</RegButton> : <RegButton onClick={clickRegister}>Зарегистрироваться</RegButton>}
 
         </StyledForm>

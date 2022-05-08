@@ -7,7 +7,6 @@ const BaseInput = styled.input`
     height: 60px;
     border-radius: 10px 10px 0 0;
     font-size: 32px;
-    //text-align: center;
     background-color: black;
     padding-left: 20px;
     color: white;
