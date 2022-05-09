@@ -1,10 +1,13 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { css, Global } from '@emotion/react'
+import { StoreProvider } from './src/stores/useStoreContext'
+import rootStore from './src/stores/rootStore'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <><Global
-    styles={css`
+  return <StoreProvider value={rootStore}>
+    <><Global
+      styles={css`
           body {
             background-color: rgb(40, 39, 39);
 
@@ -12,8 +15,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                           Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
           }
         `}
-  />
-    <Component {...pageProps} /></>
+    />
+      <Component {...pageProps} /></>
+  </StoreProvider>
 }
 
 
