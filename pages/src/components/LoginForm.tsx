@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import React, { useState } from 'react'
 import { login, signup } from '../api/authApi';
 import { getUserById } from '../api/mainApi';
+import { saveSession } from '../utils/authKeyStorageService';
 import InputLine from './InputLine'
 
 
@@ -53,17 +54,18 @@ const LoginForm = () => {
         if (loginData?.email && loginData?.password) {
             console.log("Authorization");
             login(loginData.email, loginData.password).then((response) => {
-                console.log(response.data);
+                saveSession(response.data.secretToken)
+                getUserById();
             }).catch(console.error);
         }
-
     }
+
     const clickRegister = () => {
 
         if (loginData?.email && loginData?.password) {
             console.log("Registration");
             signup(loginData.email, loginData.password).then((response) => {
-                getUserById(response.data.id);
+                //getUserById(response.data.id);
             }).catch(console.error);
         }
     }
