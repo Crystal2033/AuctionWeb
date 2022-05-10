@@ -1,5 +1,8 @@
 import { types } from 'mobx-state-tree'
+import { login } from '../api/authApi';
 import { getAccount } from '../api/mainApi';
+import { saveSession } from '../utils/authKeyStorageService';
+
 const User = types.model("User", {
     id: types.string,
     nickname: types.string,
@@ -23,7 +26,15 @@ export const UserStore = types.model("UserStore").props({
         getAccount().then(({ data: user }) => {
             self.user = User.create(user);
         });
-    }
+    },
+    login: (name:string, password:string) => {
+        login(name, password)
+            .then((response) =>{
+                saveSession(response.data.secretToken);
+                (self as any).syncAccount();
+            })
+            .catch(console.error);
+    },
 }));
 
 export const initialUserStoreState = {

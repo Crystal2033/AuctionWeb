@@ -29,11 +29,10 @@ const Home: NextPage = () => {
 
   return (
     <Main>
-
+      <AccountButton />
       <Container>
         <LoginForm />
       </Container>
-      <AccountButton />
     </Main >
   )
 }

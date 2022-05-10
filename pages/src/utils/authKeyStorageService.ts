@@ -1,9 +1,14 @@
 const TOKEN_KEY = "token"
 
 export const saveSession = (token: string) => {
-    localStorage.setItem(TOKEN_KEY, token);
+    if (typeof window !== "undefined") {
+        localStorage.setItem(TOKEN_KEY, token);
+    }
 }
 
 export const getSession = () => {
-    return { token: localStorage.getItem(TOKEN_KEY) || '' };
+    if (typeof window !== "undefined") {
+        return { token: localStorage.getItem(TOKEN_KEY) || '' };
+    }
+    return null;
 }

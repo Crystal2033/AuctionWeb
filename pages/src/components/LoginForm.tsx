@@ -54,10 +54,12 @@ const LoginForm = () => {
 
         if (loginData?.email && loginData?.password) {
             console.log("Authorization");
-            login(loginData.email, loginData.password).then((response) => {
-                saveSession(response.data.secretToken)
-                getAccount();
-            }).catch(console.error);
+            // saveSession(response.data.secretToken)
+            // getAccount();
+            if (loginData.email && loginData.password) {
+                userStore.login(loginData.email, loginData.password);
+            }
+            //.catch(console.error);
         }
     }
 
@@ -66,7 +68,8 @@ const LoginForm = () => {
         if (loginData?.email && loginData?.password) {
             console.log("Registration");
             signup(loginData.email, loginData.password).then((response) => {
-            }).catch(console.error);
+            });
+            //.catch(console.error);
         }
     }
 
