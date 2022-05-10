@@ -10,7 +10,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       styles={css`
           body {
             background-color: rgb(40, 39, 39);
-
             font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
                           Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
           }

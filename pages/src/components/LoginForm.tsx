@@ -6,6 +6,8 @@ import { saveSession } from '../utils/authKeyStorageService';
 import InputLine from './InputLine'
 import { observer } from 'mobx-react-lite'
 import { useStore } from '../stores/useStoreContext';
+import { action } from 'mobx';
+import { useRouter } from 'next/router'
 
 type LoginInfo = {
     email?: string;
@@ -17,7 +19,6 @@ const RegButton = styled.button`
     color: white;
     font-size: 15px;
     display:block;
-    //width: 397px;
 
     padding: .8em 2em calc(.8em + 3px);
     margin-top: .5em;
@@ -54,19 +55,16 @@ const LoginForm = () => {
 
         if (loginData?.email && loginData?.password) {
             console.log("Authorization");
-            login(loginData.email, loginData.password).then((response) => {
-                saveSession(response.data.secretToken)
-                getAccount();
-            }).catch(console.error);
+            userStore.login(loginData.email, loginData.password)
         }
     }
+
 
     const clickRegister = () => {
 
         if (loginData?.email && loginData?.password) {
             console.log("Registration");
-            signup(loginData.email, loginData.password).then((response) => {
-            }).catch(console.error);
+            userStore.signup(loginData.email, loginData.password);
         }
     }
 
@@ -79,7 +77,6 @@ const LoginForm = () => {
             <StyledInputPass placeholder="Пароль" dataType="password" onChange={(value) => {
                 setLoginData({ email: loginData ? loginData.email : "", password: value })
             }} />
-            {/* <PassShowButton></PassShowButton> */}
             {(!loginData?.email || !loginData?.password) ? <RegButton onClick={clickAutho} disabled>Войти</RegButton> : <RegButton onClick={clickAutho}>Войти</RegButton>}
             {(!loginData?.email || !loginData?.password) ? <RegButton onClick={clickRegister} disabled>Зарегистрироваться</RegButton> : <RegButton onClick={clickRegister}>Зарегистрироваться</RegButton>}
 
