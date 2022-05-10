@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 import React, { useState } from 'react'
-import { login, signup } from '../api/authApi';
-import { getAccount } from '../api/mainApi';
-import { saveSession } from '../utils/authKeyStorageService';
+//import { login, signup } from '../api/authApi';
+//import { getAccount } from '../api/mainApi';
+//import { saveSession } from '../utils/authKeyStorageService';
 import InputLine from './InputLine'
 import { observer } from 'mobx-react-lite'
-import { useStore } from '../stores/useStoreContext';
+//import { useStore } from '../stores/useStoreContext';
 
 type LoginInfo = {
     email?: string;
@@ -48,16 +48,16 @@ const StyledForm = styled.div`
 const LoginForm = () => {
 
     const [loginData, setLoginData] = useState<LoginInfo>()
-    const { userStore } = useStore();
+    //const { userStore } = useStore();
 
     const clickAutho = () => {
 
         if (loginData?.email && loginData?.password) {
             console.log("Authorization");
-            login(loginData.email, loginData.password).then((response) => {
-                saveSession(response.data.secretToken)
-                getAccount();
-            }).catch(console.error);
+            // login(loginData.email, loginData.password).then((response) => {
+            //     saveSession(response.data.secretToken)
+            //     getAccount();
+            // }).catch(console.error);
         }
     }
 
@@ -65,8 +65,8 @@ const LoginForm = () => {
 
         if (loginData?.email && loginData?.password) {
             console.log("Registration");
-            signup(loginData.email, loginData.password).then((response) => {
-            }).catch(console.error);
+            // signup(loginData.email, loginData.password).then((response) => {
+            // }).catch(console.error);
         }
     }
 
