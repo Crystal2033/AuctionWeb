@@ -2,13 +2,14 @@ import { types } from 'mobx-state-tree'
 import router, { useRouter } from 'next/router';
 import { login, signup } from '../api/authApi';
 import { getAccount } from '../api/mainApi';
-import { saveSession } from '../utils/authKeyStorageService';
+import { deleteSession, saveSession } from '../utils/authKeyStorageService';
 const User = types.model("User", {
     id: types.string,
     nickname: types.string,
     money: types.integer,
 }
 );
+
 
 
 export const UserStore = types.model("UserStore").props({
@@ -24,9 +25,14 @@ export const UserStore = types.model("UserStore").props({
     syncAccount: () => {
         self.isLoading = true;
         getAccount().then(({ data: user }) => {
-            self.user = User.create(user);
-            self.isLoading = false;
-        });
+            console.log(`User after syncAccount: ${user.id}`);
+            if (user) {
+                self.user = User.create(user);
+                self.isLoading = false;
+            }
+        })
+            .catch((err) => {
+            });
     },
     signup: (email: string, password: string) => {
         signup(email, password);
@@ -38,8 +44,13 @@ export const UserStore = types.model("UserStore").props({
             (self as any).syncAccount();
             self.isLoading = false;
             router.back();
+        }).catch((err) => {
         });
-
+    },
+    logout: () => {
+        deleteSession();
+        (self as any).syncAccount();
+        self.user = null;
     }
 }));
 

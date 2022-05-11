@@ -15,8 +15,7 @@ const Main = styled.main`
   display: flex;
 `;
 
-const Container = styled.div`
-    background-color:black;    
+const Container = styled.div`   
     & > * {
         
         max-width: 350px;

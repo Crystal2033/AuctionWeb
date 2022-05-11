@@ -12,3 +12,9 @@ export const getSession = () => {
     }
     return null;
 }
+
+export const deleteSession = () => {
+    if (typeof window !== 'undefined') {
+        localStorage.removeItem(TOKEN_KEY)
+    }
+}

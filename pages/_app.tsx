@@ -9,7 +9,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <><Global
       styles={css`
           body {
-            background-color: rgb(40, 39, 39);
+            background-color: rgb(37, 36, 36);
             font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
                           Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
           }
