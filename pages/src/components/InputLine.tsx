@@ -31,7 +31,6 @@ const BaseInput = styled.input`
 :-ms-input-placeholder {
    text-align: center; 
 }
-
 `
 
 type Props = {
