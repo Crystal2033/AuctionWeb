@@ -29,7 +29,21 @@ const HeaderItem = styled.div`
 }
 `
 const LogOutBtn = styled.button`
-    
+    background:#1d5152;
+    color:#ffffff;
+    text-decoration:none;
+    display:block;
+    width:90px;
+    text-align:center;
+    margin:20px auto;
+    padding:10px 10px;
+    border-radius: 5px;
+    transition:all 0.3s;
+    border-color: #14282b;
+
+    :hover{
+    box-shadow:0px -5px 0 #08a9be inset;
+}
 `
 
 const UserData = () => {

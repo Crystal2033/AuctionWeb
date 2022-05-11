@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import styled from '@emotion/styled'
 import LoginForm from './src/components/LoginForm'
 import { useStore } from './src/stores/useStoreContext';
-import AccountButton from './src/components/AccountButton';
 import MainHeader from './src/components/MainHeader';
 
 

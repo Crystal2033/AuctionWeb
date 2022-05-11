@@ -24,13 +24,14 @@ const HeaderItem = styled.div`
     font-size: 20px;
     margin-left: 5px;
     cursor: pointer;
+    border-radius: 10px;
     transition: all 1s ease;
     /* &.active {
         background-color:red;
     } */
 :hover {
     background-color: #398668;
-    border-radius: 4px;
+    
 }
 `
 
@@ -55,6 +56,7 @@ const MainHeader = () => {
                     <HeaderItem>Корзина</HeaderItem>
                 </Link>
             </HeaderSection>
+
             <HeaderSection>
                 <UserData />
             </HeaderSection>
