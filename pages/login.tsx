@@ -2,7 +2,6 @@ import type { NextPage } from 'next'
 import styled from '@emotion/styled'
 import LoginForm from './src/components/LoginForm'
 import { useStore } from './src/stores/useStoreContext';
-import AccountButton from './src/components/AccountButton';
 import MainHeader from './src/components/MainHeader';
 
 
@@ -15,8 +14,7 @@ const Main = styled.main`
   display: flex;
 `;
 
-const Container = styled.div`
-    background-color:black;    
+const Container = styled.div`   
     & > * {
         
         max-width: 350px;

@@ -44,6 +44,10 @@ const StyledForm = styled.div`
     display:flex;
     flex-direction:column;
     padding: 30px;
+    font-size: 14px;
+    background-color: #1a232f;
+    border: 2px solid #303945;
+    border-radius: 10px;
 `
 
 const LoginForm = () => {

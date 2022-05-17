@@ -1,3 +1,4 @@
+import { rejects } from "assert"
 import axios, { AxiosResponse } from "axios"
 import { HOST } from "../../../config"
 import { User } from "../types/types"

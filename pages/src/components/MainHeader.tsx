@@ -1,117 +1,67 @@
 import styled from "@emotion/styled"
+import { watch } from "fs"
 import Link from "next/link"
-import AccountButton from "./AccountButton"
+import UserData from "./UserContainer"
 
-const MainDiv = styled.span`
-    margin-top:2em;
-    flex: 1;
-    flex-direction: column;
-`
-
-const StyledSpan = styled.span`
-    //flex: 1;
-    margin-left: 2em;
-    margin-right: 2em;
-`
-
-const StyledLink = styled.span`
+const Header = styled.div`
+    display:flex;
+    justify-content:space-between;
+    padding: 10px;
+    background: #1d3a3d;
     font-family: sans-serif;
-    font-size: 16px;
-    color: #fff; /* Цвет обычной ссылки */
-    position: relative;
-    cursor: pointer;
-    text-decoration: none; /* Убираем подчеркивание */
-    transition: all 1s ease;
-    :hover{
-        color: #4895f4;
-    }
-    :after{
-        content: "";
-    display: block;
-    position: absolute;
-    right: 0;
-    bottom: -3px;
-    width: 0;
-    height: 2px; /* Высота линии */
-    background-color: #ffffff; /* Цвет подчеркивания при исчезании линии*/
-    transition: width 0.5s; /* Время эффекта */
-    }
-   :hover::after {
-    width: 100%;
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    height: 2px; /* Высота линии */
-    background-color: #7b5ae8; /* Цвет подчеркивания при появлении линии*/
-    transition: width 0.5s;  /* Время эффекта */
-    }
-
 `
 
-const myContainer = styled.span`
+const HeaderSection = styled.div`
+    display: flex;
+    align-items:center;
     
-    flex-direction: column;
+`
 
+const HeaderItem = styled.div`
+    color:white;
+    text-decoration: none;
+    padding:20px 15px;
+    font-size: 20px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 1s ease;
+    /* &.active {
+        background-color:red;
+    } */
+:hover {
+    background-color: #398668;
+    
+}
 `
 
 
 const MainHeader = () => {
     return (
-        <MainDiv>
-
-            <myContainer>
+        <Header>
+            <HeaderSection>
                 <Link href="/" passHref>
-                        <StyledLink>Списки лотов</StyledLink>
+                    <HeaderItem>Списки лотов</HeaderItem>
                 </Link>
-
                 <Link href="/" passHref>
-                    <StyledLink>Поиск лота</StyledLink>
+                    <HeaderItem className="active">Поиск лота</HeaderItem>
                 </Link>
-                <AccountButton />
-            </myContainer>
-
-            {/* <StyledSpan>
                 <Link href="/" passHref>
-                    <StyledLink>Списки лотов</StyledLink>
+                    <HeaderItem>Добавить товар</HeaderItem>
                 </Link>
-            </StyledSpan>
-
-            <StyledSpan>
                 <Link href="/" passHref>
-                    <StyledLink>Поиск лота</StyledLink>
+                    <HeaderItem>Выставить лот</HeaderItem>
                 </Link>
-            </StyledSpan>
-
-            <StyledSpan>
                 <Link href="/" passHref>
-                    <StyledLink>Добавить товар</StyledLink>
+                    <HeaderItem>Корзина</HeaderItem>
                 </Link>
-            </StyledSpan>
+            </HeaderSection>
 
-            <StyledSpan>
-                <Link href="/" passHref>
-                    <StyledLink>Выставить лот</StyledLink>
-                </Link>
-            </StyledSpan>
+            <HeaderSection>
+                <UserData />
+            </HeaderSection>
 
-            <StyledSpan>
-                <Link href="/" passHref>
-                    <StyledLink>Корзина</StyledLink>
-                </Link>
-            </StyledSpan>
-
-            <StyledSpan>
-                <Link href="/login" passHref>
-                    <StyledLink>Личный кабинет</StyledLink>
-                </Link>
-            </StyledSpan>
-
-            <StyledSpan>
-                <AccountButton />
-            </StyledSpan> */}
-
-        </MainDiv>
+        </Header>
     )
 }
 
