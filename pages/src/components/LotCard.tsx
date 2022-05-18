@@ -7,7 +7,7 @@ type Props = {
 
 
 
-export const CardLot = ({ data }: Props) => {
+export const LotCard = ({ data }: Props) => {
     return (
         <div>
             <div>{data.id}</div>

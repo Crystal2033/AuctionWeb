@@ -1,7 +1,8 @@
 import styled from '@emotion/styled'
 import type { NextPage } from 'next'
 import { useLayoutEffect, useState } from 'react';
-import { CardLot } from './src/components/CardLot';
+import { getUserLots } from './src/api/lotsApi';
+import { LotCard } from './src/components/LotCard';
 import { Lot } from './src/types/types';
 
 const Container = styled.div``
@@ -15,7 +16,7 @@ const mockGetLots = () => new Promise<ReadonlyArray<Lot>>((resolve, reject) => {
 const Lots: NextPage = () => {
     const [lots, setLots] = useState<ReadonlyArray<Lot>>([]);
     useLayoutEffect(() => {
-        mockGetLots().then((data) => {
+        getUserLots().then((data) => {
             setLots(data);
         })
     }, []);
@@ -23,7 +24,7 @@ const Lots: NextPage = () => {
     return (
         <Container>
             {lots.map((lot) => (
-                <CardLot key={lot.name} data={lot} />
+                <LotCard key={lot.name} data={lot} />
             ))}
         </Container >
     );

@@ -80,8 +80,8 @@ const stringAvatar = (name: string) => {
 }
 
 const MyAvatar = styled(Avatar)`
-    width: 24px;
-    height: 24px;
+    width: 23px;
+    height: 23px;
     padding: 5px;
     margin: 5px;
 `

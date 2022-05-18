@@ -41,10 +41,16 @@ const MainHeader = () => {
         <Header>
             <HeaderSection>
                 <Link href="/lots" passHref>
-                    <HeaderItem>Списки лотов</HeaderItem>
+                    <HeaderItem>Все лоты</HeaderItem>
+                </Link>
+                <Link href="/products" passHref>
+                    <HeaderItem className="active">Мои товары</HeaderItem>
                 </Link>
                 <Link href="/" passHref>
-                    <HeaderItem className="active">Поиск лота</HeaderItem>
+                    <HeaderItem>Мои лоты</HeaderItem>
+                </Link>
+                <Link href="/" passHref>
+                    <HeaderItem>Поиск лота</HeaderItem>
                 </Link>
                 <Link href="/" passHref>
                     <HeaderItem>Добавить товар</HeaderItem>

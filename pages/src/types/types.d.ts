@@ -12,3 +12,8 @@ export type Lot = {
     startPrice: number,
     bidStep: number,
 }
+
+export type Product = {
+    id: string,
+    name: string,
+}
