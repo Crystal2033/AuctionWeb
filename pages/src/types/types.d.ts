@@ -7,7 +7,14 @@ export type User = {
 }
 
 export type Lot = {
+    // name: string;
+    // price: number;
+    // step: number;
+    id : string;
     name: string;
-    price: number;
-    step: number;
+};
+
+export type Product = {
+    id : string;
+    name: string;
 };

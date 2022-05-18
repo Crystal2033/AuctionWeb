@@ -17,12 +17,6 @@ const CardLot = ({ data }: Props) => {
       <Paper variant="outlined" square>
         {data.name}
       </Paper>
-      <Paper variant="outlined" square>
-        {data.price}
-      </Paper>
-      <Paper variant="outlined" square>
-        {data.step}
-      </Paper>
 
       <Button onClick={() => alert(data.name)}>Купить</Button>
     </Card>
