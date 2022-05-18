@@ -11,7 +11,8 @@ export type Lot = {
     name: string,
     startPrice: number,
     bidStep: number,
-    products: ReadonlyArray<Product>,
+    lotProducts: ReadonlyArray<Product>,
+    //lotBets: ReadonlyArray<Product>
 }
 
 export type Product = {

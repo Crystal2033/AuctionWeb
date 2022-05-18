@@ -3,6 +3,7 @@ import type { NextPage } from 'next'
 import { useLayoutEffect, useState } from 'react';
 import { getUserLots } from './src/api/lotsApi';
 import { LotCard } from './src/components/LotCard';
+import MainHeader from './src/components/MainHeader';
 import { Lot } from './src/types/types';
 
 const Container = styled.div``
@@ -23,6 +24,7 @@ const Lots: NextPage = () => {
 
     return (
         <Container>
+            <MainHeader />
             {lots.map((lot) => (
                 <LotCard key={lot.name} data={lot} />
             ))}
