@@ -11,5 +11,6 @@ export const getAccount = (): Promise<AxiosResponse<User>> => {
         headers: {
             "x-access-token": session?.token || ""
         }
+
     })
 }
