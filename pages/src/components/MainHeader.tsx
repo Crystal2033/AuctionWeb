@@ -40,7 +40,7 @@ const MainHeader = () => {
     return (
         <Header>
             <HeaderSection>
-                <Link href="/" passHref>
+                <Link href="/lots" passHref>
                     <HeaderItem>Списки лотов</HeaderItem>
                 </Link>
                 <Link href="/" passHref>
