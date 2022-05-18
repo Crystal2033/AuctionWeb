@@ -10,5 +10,5 @@ export const getUserProducts = (): Promise<ReadonlyArray<Product>> => {
         headers: {
             "x-access-token": session?.token || ""
         }
-    })
+    });
 }
