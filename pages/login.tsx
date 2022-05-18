@@ -27,11 +27,14 @@ const Container = styled.div`
 const Home: NextPage = () => {
 
   return (
-    <Main>
-      <Container>
-        <LoginForm />
-      </Container>
-    </Main >
+    <div>
+      <MainHeader />
+      <Main>
+        <Container>
+          <LoginForm />
+        </Container>
+      </Main >
+    </div>
   )
 }
 

@@ -1,5 +1,4 @@
 import styled from "@emotion/styled"
-import { watch } from "fs"
 import Link from "next/link"
 import UserData from "./UserContainer"
 
@@ -9,6 +8,7 @@ const Header = styled.div`
     padding: 10px;
     background: #1d3a3d;
     font-family: sans-serif;
+    
 `
 
 const HeaderSection = styled.div`
@@ -29,13 +29,10 @@ const HeaderItem = styled.div`
     /* &.active {
         background-color:red;
     } */
-    :hover {
-        background-color: #398668; 
-    }
-
-    .choosen {
-        background-color: yellow;
-    }
+:hover {
+    background-color: #398668;
+    
+}
 `
 
 
@@ -43,13 +40,17 @@ const MainHeader = () => {
     return (
         <Header>
             <HeaderSection>
-                <Link href="lots" passHref >
-                    <HeaderItem>
-                        Списки лотов
-                    </HeaderItem>
+                <Link href="/lots" passHref>
+                    <HeaderItem>Все лоты</HeaderItem>
+                </Link>
+                <Link href="/products" passHref>
+                    <HeaderItem className="active">Мои товары</HeaderItem>
                 </Link>
                 <Link href="/" passHref>
-                    <HeaderItem className="active">Поиск лота</HeaderItem>
+                    <HeaderItem>Мои лоты</HeaderItem>
+                </Link>
+                <Link href="/" passHref>
+                    <HeaderItem>Поиск лота</HeaderItem>
                 </Link>
                 <Link href="/" passHref>
                     <HeaderItem>Добавить товар</HeaderItem>
@@ -61,6 +62,7 @@ const MainHeader = () => {
                     <HeaderItem>Корзина</HeaderItem>
                 </Link>
             </HeaderSection>
+
             <HeaderSection>
                 <UserData />
             </HeaderSection>

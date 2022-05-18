@@ -7,14 +7,15 @@ export type User = {
 }
 
 export type Lot = {
-    // name: string;
-    // price: number;
-    // step: number;
-    id : string;
-    name: string;
-};
+    id: string,
+    name: string,
+    startPrice: number,
+    bidStep: number,
+    lotProducts: ReadonlyArray<Product>,
+    //lotBets: ReadonlyArray<Product>
+}
 
 export type Product = {
-    id : string;
-    name: string;
-};
+    id: string,
+    name: string,
+}
