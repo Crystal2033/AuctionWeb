@@ -46,6 +46,9 @@ const MainHeader = () => {
                 <Link href="/products" passHref>
                     <HeaderItem className="active">Мои товары</HeaderItem>
                 </Link>
+                <Link href="/bets" passHref>
+                    <HeaderItem className="active">Мои ставки</HeaderItem>
+                </Link>
                 <Link href="/" passHref>
                     <HeaderItem>Мои лоты</HeaderItem>
                 </Link>
