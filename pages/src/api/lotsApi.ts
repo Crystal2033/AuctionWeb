@@ -3,7 +3,7 @@ import { HOST } from "../../../config"
 import { Lot, User } from "../types/types"
 import { getSession } from "../utils/authKeyStorageService"
 
-export const getUserLots = (): Promise<ReadonlyArray<Lot>> => {
+export const getUserLots = (): Promise<AxiosResponse<ReadonlyArray<Lot>>> => {
     const session = getSession()
     console.log(session?.token);
     return axios.get(`${HOST}/api/account/lots`, {
