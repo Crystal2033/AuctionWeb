@@ -5,3 +5,9 @@ export type User = {
     money: number,
     secretToken?: string,
 }
+
+export type Lot = {
+    name: string;
+    price: number;
+    step: number;
+};

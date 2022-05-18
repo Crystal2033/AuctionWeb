@@ -29,10 +29,13 @@ const HeaderItem = styled.div`
     /* &.active {
         background-color:red;
     } */
-:hover {
-    background-color: #398668;
-    
-}
+    :hover {
+        background-color: #398668; 
+    }
+
+    .choosen {
+        background-color: yellow;
+    }
 `
 
 
@@ -40,8 +43,10 @@ const MainHeader = () => {
     return (
         <Header>
             <HeaderSection>
-                <Link href="/" passHref>
-                    <HeaderItem>Списки лотов</HeaderItem>
+                <Link href="lots" passHref >
+                    <HeaderItem>
+                        Списки лотов
+                    </HeaderItem>
                 </Link>
                 <Link href="/" passHref>
                     <HeaderItem className="active">Поиск лота</HeaderItem>
@@ -56,7 +61,6 @@ const MainHeader = () => {
                     <HeaderItem>Корзина</HeaderItem>
                 </Link>
             </HeaderSection>
-
             <HeaderSection>
                 <UserData />
             </HeaderSection>
