@@ -11,7 +11,7 @@ const Products: NextPage = () => {
     const [products, setProducts] = useState<ReadonlyArray<Product>>([]);
     useLayoutEffect(() => {
         getUserProducts().then((data) => {
-            setProducts(data);
+            setProducts(data.data);
         })
     }, []);
 
@@ -19,7 +19,7 @@ const Products: NextPage = () => {
         <Container>
             {products.map((product) => (
                 <ProductCard key={product.id} data={product} />
-            ))}
+            ))};
         </Container >
     );
 };
