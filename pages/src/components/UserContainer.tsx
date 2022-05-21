@@ -9,12 +9,20 @@ const UserContainer = styled.div`
     display: flex;
     flex-direction:column;
     align-items:center;
+    flex-wrap: wrap;
+`
+
+const DataContainer = styled.div`
+    display: flex;
+    flex-direction:row;
+    align-items:center;
+
 `
 
 const Field = styled.div`
     position: relative;
     cursor: pointer;
-    
+    font-family: sans-serif;
     :after{
         content: "";
         display: block;
@@ -38,6 +46,14 @@ const Field = styled.div`
         transition: width 0.5s;  /* Время эффекта */
 
     }
+
+    :hover{
+        color: #6ec3df;
+        transition: 0.5s;
+    }
+    :not(:hover){
+        transition: 0.5s;
+    }
     
    
 `
@@ -50,13 +66,6 @@ const UserClickableField = styled.div`
     flex-direction:row;
     align-items:center;
     
-    :hover{
-        color: #6ec3df;
-        transition: 0.5s;
-    }
-    :not(:hover){
-        transition: 0.5s;
-    }
 `
 
 const HeaderItem = styled.div`
@@ -89,50 +98,11 @@ const LogOutBtn = styled.button`
 }
 `
 
-// const stringToColor = (string: string) => {
-//     let hash = 0;
-//     let i;
-
-//     /* eslint-disable no-bitwise */
-//     for (i = 0; i < string.length; i += 1) {
-//         hash = string.charCodeAt(i) + ((hash << 5) - hash);
-//     }
-
-//     let color = '#';
-
-//     for (i = 0; i < 3; i += 1) {
-//         const value = (hash >> (i * 8)) & 0xff;
-//         color += `00${value.toString(16)}`.slice(-2);
-//     }
-//     /* eslint-enable no-bitwise */
-
-//     return color;
-// }
-
-// const stringAvatar = (name: string) => {
-//     return {
-//         sx: {
-//             bgcolor: stringToColor(name),
-//         },
-//         children: `${name.split(' ')[0][0]}`,
-//     };
-// }
-
-
-{/* <MyAvatar {...stringAvatar(user?.nickname)} variant="rounded" /> */ }
-
-
-// const MyAvatar = styled(Avatar)`
-//     width: 25px;
-//     height: 25px;
-//     padding: 5px;
-//     margin: 5px;
-// `
 
 const AccountIcon = styled(MdAccountCircle)`
     width: 25px;
     height:25px;
-    margin-right: 5px;
+    margin-right: 10px;
     color:white;
 `
 
@@ -151,9 +121,16 @@ const UserData = () => {
                     <HeaderItem>Войти</HeaderItem>
                 </Link> :
                 <UserContainer>
-                    <Link href="me" passHref>
-                        <UserClickableField suppressHydrationWarning><AccountIcon /><Field>{`${!isLoading ? user?.nickname : "Неизвестно"}`}</Field></UserClickableField>
-                    </Link>
+                    <DataContainer>
+                        <Link href="me" passHref>
+                            <UserClickableField suppressHydrationWarning>
+                                <AccountIcon />
+                                <Field>
+                                    {`${!isLoading ? user?.nickname : "Неизвестно"}`}
+                                </Field>
+                            </UserClickableField>
+                        </Link>
+                    </DataContainer>
                     {/* <Field suppressHydrationWarning>{`Деньги: ${!isLoading ? user?.money : 0}`}</Field> */}
                     <LogOutBtn onClick={clickLogout}>Выйти</LogOutBtn>
                 </UserContainer>}

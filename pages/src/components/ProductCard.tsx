@@ -19,6 +19,12 @@ const MyCard = styled(Card)`
 
 
 const ProductCard = ({ data }: Props) => {
+
+    const getInfo = () => {
+        console.log(data.name);
+    }
+
+
     return (
         <Container>
             <MyCard sx={{ maxWidth: 345 }}>
@@ -34,7 +40,7 @@ const ProductCard = ({ data }: Props) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button size="small">Поместить в лот</Button>
+                    <Button onClick={getInfo} size="small">Поместить в лот</Button>
                 </CardActions>
             </MyCard>
         </Container>

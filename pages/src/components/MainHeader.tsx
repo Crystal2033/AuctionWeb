@@ -23,6 +23,7 @@ const HeaderItem = styled.div`
     color:white;
     text-decoration: none;
     padding:20px 15px;
+    font-family: sans-serif;
     font-size: 20px;
     margin-left: 5px;
     cursor: pointer;
@@ -64,6 +65,9 @@ const MainHeader = () => {
                 </Link>
                 <Link href="/lots" passHref>
                     <HeaderItem>Мои лоты</HeaderItem>
+                </Link>
+                <Link href="/bets" passHref>
+                    <HeaderItem>Мои ставки</HeaderItem>
                 </Link>
             </HeaderSection>
 
