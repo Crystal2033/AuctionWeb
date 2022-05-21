@@ -15,6 +15,9 @@ const Container = styled.div`
     justify-content: center;
     align-items:center;
 `
+const PageHeader = styled.h1`
+    color: white;
+`
 
 const Products: NextPage = () => {
     const [products, setProducts] = useState<ReadonlyArray<Product>>([]);
@@ -23,6 +26,7 @@ const Products: NextPage = () => {
             setProducts(data.data);
         })
     }, []);
+
     const { userStore } = useStore();
     const { user } = userStore;
     useEffect(() => {
@@ -33,12 +37,14 @@ const Products: NextPage = () => {
     return (
         <div>
             <MainHeader />
+
             <Container>
+                <PageHeader >Мои продукты</PageHeader>
                 {products.map((product) => (
                     <ProductCard key={product.id} data={product} />
                 ))}
             </Container >
-        </div>
+        </div >
     );
 };
 

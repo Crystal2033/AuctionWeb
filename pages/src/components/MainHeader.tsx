@@ -42,15 +42,10 @@ const MainHeader = () => {
     return (
         <Header>
             <HeaderSection>
-                <Link href="/lots" passHref>
+                <Link href="/lots/all" passHref>
                     <HeaderItem>Все лоты</HeaderItem>
                 </Link>
-                <Link href="/products" passHref>
-                    <HeaderItem className="active">Мои товары</HeaderItem>
-                </Link>
-                <Link href="/lots" passHref>
-                    <HeaderItem>Мои лоты</HeaderItem>
-                </Link>
+
                 <Link href="/" passHref>
                     <HeaderItem>Поиск лота</HeaderItem>
                 </Link>
@@ -62,6 +57,12 @@ const MainHeader = () => {
                 </Link>
                 <Link href="/" passHref>
                     <HeaderItem>Корзина</HeaderItem>
+                </Link>
+                <Link href="/products" passHref>
+                    <HeaderItem className="active">Мои товары</HeaderItem>
+                </Link>
+                <Link href="/lots" passHref>
+                    <HeaderItem>Мои лоты</HeaderItem>
                 </Link>
             </HeaderSection>
 
