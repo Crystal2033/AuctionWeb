@@ -1,5 +1,6 @@
 import { types } from 'mobx-state-tree'
 import router, { useRouter } from 'next/router';
+import { userInfo } from 'os';
 import { login, signup } from '../api/authApi';
 import { getAccount } from '../api/mainApi';
 import { deleteSession, saveSession } from '../utils/authKeyStorageService';
@@ -49,8 +50,8 @@ export const UserStore = types.model("UserStore").props({
     },
     logout: () => {
         deleteSession();
-        (self as any).syncAccount();
         self.user = null;
+        //(self as any).syncAccount();
     }
 }));
 

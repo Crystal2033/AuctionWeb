@@ -1,9 +1,12 @@
 import styled from '@emotion/styled'
+import { observer } from 'mobx-react-lite';
 import type { NextPage } from 'next'
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { getUserProducts } from './src/api/productsApi';
 import MainHeader from './src/components/MainHeader';
-import { ProductCard } from './src/components/ProductCard';
+import ProductCard from './src/components/ProductCard';
+import { useStore } from './src/stores/useStoreContext';
+//import { ProductCard } from './src/components/ProductCard';
 import { Product } from './src/types/types';
 
 const Container = styled.div`
@@ -20,6 +23,12 @@ const Products: NextPage = () => {
             setProducts(data.data);
         })
     }, []);
+    const { userStore } = useStore();
+    const { user } = userStore;
+    useEffect(() => {
+        setProducts([]);
+    }, [user])
+
 
     return (
         <div>
@@ -33,4 +42,4 @@ const Products: NextPage = () => {
     );
 };
 
-export default Products;
+export default observer(Products);

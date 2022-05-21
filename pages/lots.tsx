@@ -6,7 +6,13 @@ import { LotCard } from './src/components/LotCard';
 import MainHeader from './src/components/MainHeader';
 import { Lot } from './src/types/types';
 
-const Container = styled.div``
+const Container = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    
+`
 
 // const mockGetLots = () => new Promise<ReadonlyArray<Lot>>((resolve, reject) => {
 //     resolve([{ id: "asdadaskdalsd1231", name: "Сапог левый", startPrice: 100, bidStep: 200 },
@@ -23,12 +29,14 @@ const Lots: NextPage = () => {
     }, []);
 
     return (
-        <Container>
+        <div>
             <MainHeader />
-            {lots.map((lot) => (
-                <LotCard key={lot.name} lot={lot} />
-            ))}
-        </Container >
+            <Container>
+                {lots.map((lot) => (
+                    <LotCard key={lot.name} lot={lot} />
+                ))}
+            </Container >
+        </div>
     );
 };
 

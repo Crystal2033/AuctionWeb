@@ -8,13 +8,14 @@ const Header = styled.div`
     padding: 10px;
     background: #1d3a3d;
     font-family: sans-serif;
+    flex-wrap:wrap;
     
 `
 
 const HeaderSection = styled.div`
     display: flex;
     align-items:center;
-    
+    flex-wrap:wrap;
 `
 
 const HeaderItem = styled.div`
@@ -30,9 +31,10 @@ const HeaderItem = styled.div`
         background-color:red;
     } */
 :hover {
-    background-color: #398668;
-    
+    background-color: #398668;  
 }
+
+
 `
 
 
