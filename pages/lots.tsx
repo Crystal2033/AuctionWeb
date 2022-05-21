@@ -22,17 +22,22 @@ const PageHeader = styled.h1`
 
 const Lots: NextPage = () => {
     const [lots, setLots] = useState<ReadonlyArray<Lot>>([]);
-    useLayoutEffect(() => {
-        getUserLots().then((data) => {
-            setLots(data.data);
-        })
-    }, []);
+    if (typeof window !== 'undefined') {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useLayoutEffect(() => {
+            getUserLots().then((data) => {
+                setLots(data.data);
+            })
+        }, []);
+    }
 
     const { userStore } = useStore();
     const { user } = userStore;
+
     useEffect(() => {
         setLots([]);
     }, [user])
+
     return (
         <div>
             <MainHeader />
