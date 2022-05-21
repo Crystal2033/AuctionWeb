@@ -1,0 +1,43 @@
+import styled from '@emotion/styled'
+import type { NextPage } from 'next'
+import { useLayoutEffect, useState } from 'react';
+import { getUserLots } from '../src/api/lotsApi';
+import { LotCard } from '../src/components/LotCard';
+import MainHeader from '../src/components/MainHeader';
+import { Lot } from '../src/types/types';
+
+const Container = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    
+`
+
+const PageHeader = styled.h1`
+    color: white;
+`
+
+const Lots: NextPage = () => {
+    const [lots, setLots] = useState<ReadonlyArray<Lot>>([]);
+    useLayoutEffect(() => {
+        // getUserLots().then((data) => {
+        //     setLots(data.data);
+        // })
+    }, []);
+
+    return (
+        <div>
+            <MainHeader />
+
+            <Container>
+                <PageHeader >Все лоты</PageHeader>
+                {lots.map((lot) => (
+                    <LotCard key={lot.name} lot={lot} />
+                ))}
+            </Container >
+        </div>
+    );
+};
+
+export default Lots;

@@ -24,7 +24,7 @@ const Container = styled.div`
 `;
 
 
-const Home: NextPage = () => {
+const Login: NextPage = () => {
 
   return (
     <div>
@@ -38,4 +38,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default Login

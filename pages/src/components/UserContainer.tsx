@@ -7,17 +7,55 @@ import { useStore } from "../stores/useStoreContext";
 const UserContainer = styled.div`
     display: flex;
     flex-direction:column;
-    align-items:left;
+    align-items:center;
 `
 
-const UserField = styled.div`
+const Field = styled.div`
+    position: relative;
+    cursor: pointer;
+    
+    :after{
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: -3px;
+        width: 0;
+        height: 2px; /* Высота линии */
+        background-color: #6ec3df; /* Цвет подчеркивания при исчезании линии*/
+        transition: width 0.5s; /* Время эффекта */
+    }
+    :hover::after{
+        content: "";
+        width: 100%;
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        height: 2px; /* Высота линии */
+        background-color: #6ec3df; /* Цвет подчеркивания при появлении линии*/
+        transition: width 0.5s;  /* Время эффекта */
+
+    }
+    
+   
+`
+
+const UserClickableField = styled.div`
     color:white;
     padding:5px 5px;
-    font-size: 15px;
+    font-size: 20px;
     display:flex;
     flex-direction:row;
     align-items:center;
-    //margin-left: 5px;
+    
+    :hover{
+        color: #6ec3df;
+        transition: 0.5s;
+    }
+    :not(:hover){
+        transition: 0.5s;
+    }
 `
 
 const HeaderItem = styled.div`
@@ -80,8 +118,8 @@ const stringAvatar = (name: string) => {
 }
 
 const MyAvatar = styled(Avatar)`
-    width: 23px;
-    height: 23px;
+    width: 25px;
+    height: 25px;
     padding: 5px;
     margin: 5px;
 `
@@ -101,9 +139,10 @@ const UserData = () => {
                     <HeaderItem>Войти</HeaderItem>
                 </Link> :
                 <UserContainer>
-
-                    <UserField suppressHydrationWarning><MyAvatar {...stringAvatar(user?.nickname)} variant="rounded" />{`${!isLoading ? user?.nickname : "Неизвестно"}`}</UserField>
-                    <UserField suppressHydrationWarning>{`Деньги: ${!isLoading ? user?.money : 0}`}</UserField>
+                    <Link href="me" passHref>
+                        <UserClickableField suppressHydrationWarning><MyAvatar {...stringAvatar(user?.nickname)} variant="rounded" /><Field>{`${!isLoading ? user?.nickname : "Неизвестно"}`}</Field></UserClickableField>
+                    </Link>
+                    {/* <Field suppressHydrationWarning>{`Деньги: ${!isLoading ? user?.money : 0}`}</Field> */}
                     <LogOutBtn onClick={clickLogout}>Выйти</LogOutBtn>
                 </UserContainer>}
         </UserContainer>

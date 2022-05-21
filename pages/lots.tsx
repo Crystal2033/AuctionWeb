@@ -1,35 +1,55 @@
 import styled from '@emotion/styled'
+import { observer } from 'mobx-react-lite';
 import type { NextPage } from 'next'
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { getUserLots } from './src/api/lotsApi';
 import { LotCard } from './src/components/LotCard';
 import MainHeader from './src/components/MainHeader';
+import { useStore } from './src/stores/useStoreContext';
 import { Lot } from './src/types/types';
 
-const Container = styled.div``
+const Container = styled.div`
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    
+`
 
-// const mockGetLots = () => new Promise<ReadonlyArray<Lot>>((resolve, reject) => {
-//     resolve([{ id: "asdadaskdalsd1231", name: "Сапог левый", startPrice: 100, bidStep: 200 },
-//     { id: "hmlkfgdhlk231", name: "Сапог средний", startPrice: 200, bidStep: 400 },
-//     { id: "123123dsqasd1", name: "Сапог правый", startPrice: 300, bidStep: 500 }]);
-// })
+const PageHeader = styled.h1`
+    color: white;
+`
 
 const Lots: NextPage = () => {
     const [lots, setLots] = useState<ReadonlyArray<Lot>>([]);
-    useLayoutEffect(() => {
-        getUserLots().then((data) => {
-            setLots(data.data);
-        })
-    }, []);
+    if (typeof window !== 'undefined') {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useLayoutEffect(() => {
+            getUserLots().then((data) => {
+                setLots(data.data);
+            })
+        }, []);
+    }
+
+    const { userStore } = useStore();
+    const { user } = userStore;
+
+    useEffect(() => {
+        setLots([]);
+    }, [user])
 
     return (
-        <Container>
+        <div>
             <MainHeader />
-            {lots.map((lot) => (
-                <LotCard key={lot.name} data={lot} />
-            ))}
-        </Container >
+
+            <Container>
+                <PageHeader >Мои лоты</PageHeader>
+                {lots.map((lot) => (
+                    <LotCard key={lot.name} lot={lot} />
+                ))}
+            </Container >
+        </div>
     );
 };
 
-export default Lots;
+export default observer(Lots);
