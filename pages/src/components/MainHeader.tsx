@@ -5,10 +5,11 @@ import UserData from "./UserContainer"
 const Header = styled.div`
     display:flex;
     justify-content:space-between;
-    padding: 10px;
+    padding: 20px;
     background: #1d3a3d;
     font-family: sans-serif;
     flex-wrap:wrap;
+    border-radius: 7px;
     
 `
 
@@ -45,6 +46,7 @@ const MainHeader = () => {
                 <Link href="/lots/all" passHref>
                     <HeaderItem>Все лоты</HeaderItem>
                 </Link>
+
                 <Link href="/" passHref>
                     <HeaderItem>Поиск лота</HeaderItem>
                 </Link>

@@ -10,8 +10,9 @@ const Main = styled.main`
   //justify-content: center; // x
   //flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  height: 75vh;
   display: flex;
+  margin: 0 auto;
 `;
 
 const Container = styled.div`   
