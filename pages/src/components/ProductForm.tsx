@@ -8,10 +8,10 @@ import { observer } from 'mobx-react-lite'
 import { useStore } from '../stores/useStoreContext';
 import { action } from 'mobx';
 import { useRouter } from 'next/router'
+import { addProduct } from '../api/productsApi';
 
-type LoginInfo = {
-    email?: string;
-    password?: string;
+type ProductInfo = {
+    name?: string;
 }
 
 const RegButton = styled.button`
@@ -52,38 +52,24 @@ const StyledForm = styled.div`
 
 const LoginForm = () => {
 
-    const [loginData, setLoginData] = useState<LoginInfo>();
-    const { userStore } = useStore();
+    const [productData, setProductData] = useState<ProductInfo>();
 
     const clickAutho = () => {
 
-        if (loginData?.email && loginData?.password) {
-            console.log("Authorization");
-            userStore.login(loginData.email, loginData.password)
-        }
-    }
-
-
-    const clickRegister = () => {
-
-        if (loginData?.email && loginData?.password) {
-            console.log("Registration");
-            userStore.signup(loginData.email, loginData.password);
+        if (productData?.name) {
+            console.log("Add product");
+            addProduct(productData.name);
         }
     }
 
     return (
         <StyledForm>
-            <StyledInputEmail placeholder="Почта" onChange={(value) => {
-                setLoginData({ email: value, password: loginData ? loginData.password : "" })
+            <StyledInputEmail placeholder="Название товара" onChange={(value) => {
+                setProductData({ name: value });
             }} />
-
-            <StyledInputPass placeholder="Пароль" dataType="password" onChange={(value) => {
-                setLoginData({ email: loginData ? loginData.email : "", password: value })
-            }} />
-            {(!loginData?.email || !loginData?.password) ? <RegButton onClick={clickAutho} disabled>Войти</RegButton> : <RegButton onClick={clickAutho}>Войти</RegButton>}
-            {(!loginData?.email || !loginData?.password) ? <RegButton onClick={clickRegister} disabled>Зарегистрироваться</RegButton> : <RegButton onClick={clickRegister}>Зарегистрироваться</RegButton>}
-
+            
+            {(productData?.name) ? <RegButton onClick={clickAutho}>Добавить</RegButton> : ""}
+    
         </StyledForm>
     )
 }
