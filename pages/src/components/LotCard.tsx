@@ -7,15 +7,8 @@ type Props = {
 }
 
 
-
 export const LotCard = ({ data }: Props) => {
     return (
-        // <div>
-        //     <div>{data.id}</div>
-        //     <div>{data.name}</div>
-        //     <div>{data.startPrice}</div>
-        //     <div>{data.bidStep}</div>
-        // </div>
         <Card sx={{ maxWidth: 345 }}>
             <CardActionArea>
                 <CardContent>

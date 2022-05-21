@@ -18,7 +18,7 @@ const Lots: NextPage = () => {
     const [lots, setLots] = useState<ReadonlyArray<Lot>>([]);
     useLayoutEffect(() => {
         getUserLots().then((data) => {
-            setLots(data);
+            setLots(data.data);
         })
     }, []);
 
