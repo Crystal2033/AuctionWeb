@@ -86,7 +86,6 @@ const ProductForm = () => {
     return (
         user ?
             <StyledForm>
-
                 <StyledInputEmail placeholder="Название товара" onChange={(value) => {
                     setProductData({ name: value });
                 }} />

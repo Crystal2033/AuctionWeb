@@ -51,7 +51,7 @@ const MainHeader = () => {
                 <Link href="/products/add" passHref>
                     <HeaderItem>Добавить товар</HeaderItem>
                 </Link>
-                <Link href="/" passHref>
+                <Link href="/lots/add" passHref>
                     <HeaderItem>Выставить лот</HeaderItem>
                 </Link>
                 <Link href="/" passHref>
