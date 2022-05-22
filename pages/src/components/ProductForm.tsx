@@ -6,7 +6,7 @@ import { saveSession } from '../utils/authKeyStorageService';
 import InputLine from './InputLine'
 import { observer } from 'mobx-react-lite'
 import { useStore } from '../stores/useStoreContext';
-import { action } from 'mobx';
+import { action, observe } from 'mobx';
 import { useRouter } from 'next/router'
 import { addProduct } from '../api/productsApi';
 import { Link, Paper } from '@mui/material';
@@ -60,7 +60,7 @@ const HeaderSection = styled.div`
     font-size: 20px;
 `
 
-const LoginForm = () => {
+const ProductForm = () => {
 
     const [productData, setProductData] = useState<ProductInfo>();
 
@@ -77,7 +77,7 @@ const LoginForm = () => {
         }
     }
 
-
+/*  */
 
     return (
         user?
@@ -95,5 +95,4 @@ const LoginForm = () => {
     )
 }
 
-
-export default LoginForm
+export default observer(ProductForm)
