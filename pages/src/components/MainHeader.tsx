@@ -44,7 +44,7 @@ const MainHeader = () => {
                     <HeaderItem>Все лоты</HeaderItem>
                 </Link>
 
-                <Link href="/" passHref>
+                <Link href="/lots/search" passHref>
                     <HeaderItem>Поиск лота</HeaderItem>
                 </Link>
                 <Link href="/product" passHref>

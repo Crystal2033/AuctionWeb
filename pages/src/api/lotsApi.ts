@@ -22,3 +22,14 @@ export const getAllLots = () : Promise<AxiosResponse<ReadonlyArray<Lot>>> => {
         }
     })
 }
+
+export const getSearchLots = (name: string) : Promise<AxiosResponse<ReadonlyArray<Lot>>> => {
+    debugger;
+
+    const session = getSession()
+    console.log(session?.token);
+
+    return axios.get(`${HOST}/api/lots/search`,
+        {params: {name:name}}
+    );
+}
