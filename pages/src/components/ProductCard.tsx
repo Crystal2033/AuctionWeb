@@ -3,18 +3,19 @@ import { Product } from '../types/types'
 import { Button, Card, CardActionArea, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
 import styled from '@emotion/styled'
 import { observer } from 'mobx-react-lite'
+
 type Props = {
     data: Product
 }
 
 const Container = styled.div`
+
 `
 
 
 const MyCard = styled(Card)`
     background-color: #344a71;
     margin:10px;
-    
 `
 
 

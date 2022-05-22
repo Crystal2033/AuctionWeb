@@ -9,6 +9,8 @@ import { useStore } from '../stores/useStoreContext';
 import { action } from 'mobx';
 import { useRouter } from 'next/router'
 import { addProduct } from '../api/productsApi';
+import { Link, Paper } from '@mui/material';
+import router from 'next/router';
 
 type ProductInfo = {
     name?: string;
@@ -50,9 +52,22 @@ const StyledForm = styled.div`
     border-radius: 10px;
 `
 
+const HeaderSection = styled.div`
+    display: flex;
+    align-items:center;
+    flex-wrap:wrap;
+    color:white;
+    font-size: 20px;
+`
+
 const LoginForm = () => {
 
     const [productData, setProductData] = useState<ProductInfo>();
+
+    const { userStore } = useStore();
+    const { user, isLoading } = userStore;
+
+    const router = useRouter();
 
     const clickAutho = () => {
 
@@ -62,15 +77,21 @@ const LoginForm = () => {
         }
     }
 
+
+
     return (
+        user?
         <StyledForm>
-            <StyledInputEmail placeholder="Название товара" onChange={(value) => {
-                setProductData({ name: value });
-            }} />
-            
-            {(productData?.name) ? <RegButton onClick={clickAutho}>Добавить</RegButton> : ""}
-    
+                <StyledInputEmail placeholder="Название товара" onChange={(value) => {
+                    setProductData({ name: value });
+                }} />
+                {(productData?.name) ? <RegButton onClick={clickAutho}>Добавить</RegButton> : ""}
         </StyledForm>
+        : 
+            <HeaderSection> 
+                Пользователь не авторизирован
+            </HeaderSection>
+            
     )
 }
 
