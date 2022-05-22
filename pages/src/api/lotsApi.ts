@@ -12,3 +12,13 @@ export const getUserLots = (): Promise<AxiosResponse<ReadonlyArray<Lot>>> => {
         }
     })
 }
+
+export const getAllLots = () : Promise<AxiosResponse<ReadonlyArray<Lot>>> => {
+    const session = getSession()
+    console.log(session?.token);
+    return axios.get(`${HOST}/api/lots/all`, {
+        headers: {
+            "x-access-token": session?.token || ""
+        }
+    })
+}
