@@ -38,7 +38,7 @@ const Bets: NextPage = () => {
     }, [user])
 
     return (
-        
+
         <Container>
             <MainHeader />
             <Main>

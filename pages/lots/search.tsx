@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import { observer } from 'mobx-react-lite';
 import type { NextPage } from 'next'
 import { useLayoutEffect, useState } from 'react';
-import { getAllLots, getSearchLots} from '../src/api/lotsApi';
+import { getAllLots, getSearchLots } from '../src/api/lotsApi';
 import InputLine from '../src/components/InputLine';
 import { LotCard } from '../src/components/LotCard';
 import MainHeader from '../src/components/MainHeader';
@@ -17,6 +17,7 @@ const Container = styled.div`
 `
 
 const StyledForm = styled.div`
+    margin-bottom:20px;
     display:flex;
     flex-direction:column;
     padding: 30px;
@@ -44,7 +45,7 @@ const RegButton = styled.button`
     }
 `
 
-const Main = styled.main`
+const Main = styled.div`
   align-items: center; // y
   //justify-content: center; // x
   //flex-direction: column;
@@ -53,6 +54,12 @@ const Main = styled.main`
   display: flex;
   margin: 0 auto;
 `;
+
+const GlobalContainer = styled.div`
+display:flex;
+flex-direction: column;
+align-items:center;
+`
 
 const StyledInputEmail = styled(InputLine)`
     border-radius: 10px 10px 0 0;
@@ -72,8 +79,7 @@ const LotsSearcher: NextPage = () => {
 
 
     const clickSearch = () => {
-        if (lot && lot.name)
-        {
+        if (lot && lot.name) {
             getSearchLots(lot.name).then((data) => {
                 setLots(data.data);
             })
@@ -83,22 +89,24 @@ const LotsSearcher: NextPage = () => {
     return (
         <div>
             <MainHeader />
-                <Main>
-                    <Container>
-                    <PageHeader >Поиск лотов</PageHeader>
-                        <StyledForm>
-                            <StyledInputEmail placeholder="Название лота" onChange={(value) => {
-                                setLotInfo({ name: value });
-                            }} />
+            <GlobalContainer>
 
-                            {(lot?.name) ? <RegButton onClick={clickSearch}>Найти</RegButton> : ""}
-                        </StyledForm>
-                        
-                        {lots.map((lot) => (
-                            <LotCard key={lot.name} lot={lot} />
-                        ))}
-                    </Container>
-                </Main>
+                <Container>
+                    <PageHeader >Поиск лотов</PageHeader>
+                    <StyledForm>
+                        <StyledInputEmail placeholder="Название лота" onChange={(value) => {
+                            setLotInfo({ name: value });
+                        }} />
+
+                        {(lot?.name) ? <RegButton onClick={clickSearch}>Найти</RegButton> : ""}
+                    </StyledForm>
+
+                    {lots.map((lot) => (
+                        <LotCard key={lot.name} lot={lot} />
+                    ))}
+                </Container>
+
+            </GlobalContainer>
         </div>
     );
 };
