@@ -12,13 +12,11 @@ const Header = styled.div`
     border-radius: 7px;
     
 `
-
 const HeaderSection = styled.div`
     display: flex;
     align-items:center;
     flex-wrap:wrap;
 `
-
 const HeaderItem = styled.div`
     color:white;
     text-decoration: none;
@@ -39,7 +37,6 @@ const HeaderItem = styled.div`
 
 `
 
-
 const MainHeader = () => {
     return (
         <Header>
@@ -48,10 +45,10 @@ const MainHeader = () => {
                     <HeaderItem>Все лоты</HeaderItem>
                 </Link>
 
-                <Link href="/" passHref>
+                <Link href="/lots/search" passHref>
                     <HeaderItem>Поиск лота</HeaderItem>
                 </Link>
-                <Link href="/" passHref>
+                <Link href="/product" passHref>
                     <HeaderItem>Добавить товар</HeaderItem>
                 </Link>
                 <Link href="/" passHref>

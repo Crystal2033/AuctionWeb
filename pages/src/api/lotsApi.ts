@@ -12,3 +12,24 @@ export const getUserLots = (): Promise<AxiosResponse<ReadonlyArray<Lot>>> => {
         }
     })
 }
+
+export const getAllLots = () : Promise<AxiosResponse<ReadonlyArray<Lot>>> => {
+    const session = getSession()
+    console.log(session?.token);
+    return axios.get(`${HOST}/api/lots/all`, {
+        headers: {
+            "x-access-token": session?.token || ""
+        }
+    })
+}
+
+export const getSearchLots = (name: string) : Promise<AxiosResponse<ReadonlyArray<Lot>>> => {
+    debugger;
+
+    const session = getSession()
+    console.log(session?.token);
+
+    return axios.get(`${HOST}/api/lots/search`,
+        {params: {name:name}}
+    );
+}

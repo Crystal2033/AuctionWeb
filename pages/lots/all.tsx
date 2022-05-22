@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import type { NextPage } from 'next'
 import { useLayoutEffect, useState } from 'react';
-import { getUserLots } from '../src/api/lotsApi';
+import { getAllLots} from '../src/api/lotsApi';
 import { LotCard } from '../src/components/LotCard';
 import MainHeader from '../src/components/MainHeader';
 import { Lot } from '../src/types/types';
@@ -14,17 +14,21 @@ const Container = styled.div`
     
 `
 
+
 const PageHeader = styled.h1`
     color: white;
 `
 
 const Lots: NextPage = () => {
     const [lots, setLots] = useState<ReadonlyArray<Lot>>([]);
-    useLayoutEffect(() => {
-        // getUserLots().then((data) => {
-        //     setLots(data.data);
-        // })
-    }, []);
+    if (typeof window !== 'undefined') {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        useLayoutEffect(() => {
+            getAllLots().then((data) => {
+                setLots(data.data);
+            })
+        }, []);
+    }
 
     return (
         <div>

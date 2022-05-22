@@ -4,6 +4,8 @@ import { userInfo } from 'os';
 import { login, signup } from '../api/authApi';
 import { getAccount } from '../api/mainApi';
 import { deleteSession, saveSession } from '../utils/authKeyStorageService';
+
+
 const User = types.model("User", {
     id: types.string,
     nickname: types.string,

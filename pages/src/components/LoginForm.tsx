@@ -58,7 +58,7 @@ type Props = {
 
 const LoginForm = ({ path }: Props) => {
 
-    const [loginData, setLoginData] = useState<LoginInfo>()
+    const [loginData, setLoginData] = useState<LoginInfo>();
     const { userStore } = useStore();
     const router = useRouter();
     const clickAutho = () => {
