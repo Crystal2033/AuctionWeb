@@ -41,7 +41,6 @@ const Lots: NextPage = () => {
     return (
         <div>
             <MainHeader />
-
             <Container>
                 <PageHeader >Мои лоты</PageHeader>
                 {lots.map((lot) => (

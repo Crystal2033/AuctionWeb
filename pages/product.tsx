@@ -24,6 +24,9 @@ const Container = styled.div`
     }
 `;
 
+const PageHeader = styled.h1`
+    color: white;
+`
 
 const Login: NextPage = () => {
 
@@ -32,9 +35,11 @@ const Login: NextPage = () => {
       <MainHeader />
       <Main>
         <Container>
-          <ProductForm />
-        </Container>
-      </Main >
+            <PageHeader>Добавление товара</PageHeader>
+            <ProductForm />
+          </Container>
+      </Main>
+
     </div>
   )
 }

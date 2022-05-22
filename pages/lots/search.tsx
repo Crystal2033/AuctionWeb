@@ -44,6 +44,16 @@ const RegButton = styled.button`
     }
 `
 
+const Main = styled.main`
+  align-items: center; // y
+  //justify-content: center; // x
+  //flex-direction: column;
+  justify-content: center;
+  height: 75vh;
+  display: flex;
+  margin: 0 auto;
+`;
+
 const StyledInputEmail = styled(InputLine)`
     border-radius: 10px 10px 0 0;
 `
@@ -73,20 +83,22 @@ const LotsSearcher: NextPage = () => {
     return (
         <div>
             <MainHeader />
-                <Container>
-                <PageHeader >Поиск лотов</PageHeader>
-                    <StyledForm>
-                        <StyledInputEmail placeholder="Название лота" onChange={(value) => {
-                            setLotInfo({ name: value });
-                        }} />
+                <Main>
+                    <Container>
+                    <PageHeader >Поиск лотов</PageHeader>
+                        <StyledForm>
+                            <StyledInputEmail placeholder="Название лота" onChange={(value) => {
+                                setLotInfo({ name: value });
+                            }} />
 
-                        {(lot?.name) ? <RegButton onClick={clickSearch}>Найти</RegButton> : ""}
-                    </StyledForm>
-                    
-                    {lots.map((lot) => (
-                        <LotCard key={lot.name} lot={lot} />
-                    ))}
-                </Container>
+                            {(lot?.name) ? <RegButton onClick={clickSearch}>Найти</RegButton> : ""}
+                        </StyledForm>
+                        
+                        {lots.map((lot) => (
+                            <LotCard key={lot.name} lot={lot} />
+                        ))}
+                    </Container>
+                </Main>
         </div>
     );
 };

@@ -60,6 +60,10 @@ const HeaderSection = styled.div`
     font-size: 20px;
 `
 
+const PageHeader = styled.h1`
+    color: white;
+`
+
 const ProductForm = () => {
 
     const [productData, setProductData] = useState<ProductInfo>();
@@ -81,12 +85,13 @@ const ProductForm = () => {
 
     return (
         user?
-        <StyledForm>
-                <StyledInputEmail placeholder="Название товара" onChange={(value) => {
-                    setProductData({ name: value });
-                }} />
-                {(productData?.name) ? <RegButton onClick={clickAutho}>Добавить</RegButton> : ""}
-        </StyledForm>
+            <StyledForm>
+                
+                    <StyledInputEmail placeholder="Название товара" onChange={(value) => {
+                        setProductData({ name: value });
+                    }} />
+                    {(productData?.name) ? <RegButton onClick={clickAutho}>Добавить</RegButton> : ""}
+            </StyledForm>
         : 
             <HeaderSection> 
                 Пользователь не авторизирован
