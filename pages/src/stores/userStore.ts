@@ -18,18 +18,18 @@ export const UserStore = types.model("UserStore").props({
     isLoading: types.boolean,
 }).actions((self) => ({
     afterCreate: () => {
-        console.log("USER STORE CREATED");
+        //console.log("USER STORE CREATED");
         setTimeout(() => {
             (self as any).syncAccount();
         })
     },
     syncAccount: () => {
-        self.isLoading = true;
+        //self.isLoading = true;
         getAccount().then(({ data: user }) => {
-            console.log(`User after syncAccount: ${user.id}`);
+            //console.log(`User after syncAccount: ${user.id}`);
             if (user) {
                 self.user = User.create(user);
-                self.isLoading = false;
+                //self.isLoading = false;
             }
         })
             .catch((err) => {
@@ -44,7 +44,6 @@ export const UserStore = types.model("UserStore").props({
             saveSession(response.data.secretToken);
             (self as any).syncAccount();
             self.isLoading = false;
-            router.back();
         }).catch((err) => {
         });
     },

@@ -63,7 +63,7 @@ const MainHeader = () => {
                 <Link href="/products" passHref>
                     <HeaderItem className="active">Мои товары</HeaderItem>
                 </Link>
-                <Link href="/lots" passHref>
+                <Link href="/lots/my" passHref>
                     <HeaderItem>Мои лоты</HeaderItem>
                 </Link>
                 <Link href="/bets" passHref>
@@ -74,7 +74,6 @@ const MainHeader = () => {
             <HeaderSection>
                 <UserData />
             </HeaderSection>
-
         </Header>
     )
 }

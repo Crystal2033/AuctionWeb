@@ -2,11 +2,11 @@ import styled from '@emotion/styled'
 import { observer } from 'mobx-react-lite';
 import type { NextPage } from 'next'
 import { useEffect, useLayoutEffect, useState } from 'react';
-import { getUserLots } from './src/api/lotsApi';
-import { LotCard } from './src/components/LotCard';
-import MainHeader from './src/components/MainHeader';
-import { useStore } from './src/stores/useStoreContext';
-import { Lot } from './src/types/types';
+import { getUserLots } from '../src/api/lotsApi';
+import { LotCard } from '../src/components/LotCard';
+import MainHeader from '../src/components/MainHeader';
+import { useStore } from '../src/stores/useStoreContext';
+import { Lot } from '../src/types/types';
 
 const Container = styled.div`
     display:flex;
@@ -41,7 +41,6 @@ const Lots: NextPage = () => {
     return (
         <div>
             <MainHeader />
-
             <Container>
                 <PageHeader >Мои лоты</PageHeader>
                 {lots.map((lot) => (

@@ -15,27 +15,21 @@ const Main = styled.main`
   margin: 0 auto;
 `;
 
-const Container = styled.div`   
-    & > * {
-        
-        max-width: 350px;
-        width: 100%;
-        margin: 10px auto; // середина 
-    }
+const Container = styled.div`
 `;
 
 
 const Login: NextPage = () => {
 
   return (
-    <div>
+    <Container>
       <MainHeader />
       <Main>
         <Container>
           <LoginForm />
         </Container>
       </Main >
-    </div>
+    </Container>
   )
 }
 

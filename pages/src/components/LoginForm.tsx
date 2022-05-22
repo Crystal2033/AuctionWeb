@@ -7,7 +7,7 @@ import InputLine from './InputLine'
 import { observer } from 'mobx-react-lite'
 import { useStore } from '../stores/useStoreContext';
 import { action } from 'mobx';
-import { useRouter } from 'next/router'
+import Router, { useRouter } from 'next/router'
 
 type LoginInfo = {
     email?: string;
@@ -48,18 +48,29 @@ const StyledForm = styled.div`
     background-color: #1a232f;
     border: 2px solid #303945;
     border-radius: 10px;
+    max-width: 350px;
+    margin: 10px auto; // середина 
 `
 
-const LoginForm = () => {
+type Props = {
+    path?: string;
+}
+
+const LoginForm = ({ path }: Props) => {
 
     const [loginData, setLoginData] = useState<LoginInfo>()
     const { userStore } = useStore();
-
+    const router = useRouter();
     const clickAutho = () => {
 
         if (loginData?.email && loginData?.password) {
             console.log("Authorization");
-            userStore.login(loginData.email, loginData.password)
+            userStore.login(loginData.email, loginData.password);
+            if (typeof userStore.user !== null) {
+                path ?
+                    router.push(path)
+                    : router.back();
+            }
         }
     }
 
@@ -69,6 +80,7 @@ const LoginForm = () => {
         if (loginData?.email && loginData?.password) {
             console.log("Registration");
             userStore.signup(loginData.email, loginData.password);
+
         }
     }
 

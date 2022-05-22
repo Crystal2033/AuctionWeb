@@ -81,7 +81,7 @@ const HeaderItem = styled.div`
     border-radius: 4px;
 }
 `
-const LogOutBtn = styled.button`
+const Button = styled.button`
     background:#1d5152;
     color:#ffffff;
     text-decoration:none;
@@ -90,7 +90,7 @@ const LogOutBtn = styled.button`
     text-align:center;
     padding:5px 5px;
     margin-top :10px;
-    border-radius: 5px;
+    border-radius: 10px;
     transition:all 0.3s;
     border-color: #14282b;
     :hover{
@@ -118,11 +118,11 @@ const UserData = () => {
         <UserContainer>
             {!user ?
                 <Link href="/login" passHref>
-                    <HeaderItem>Войти</HeaderItem>
+                    <Button>Войти</Button>
                 </Link> :
                 <UserContainer>
                     <DataContainer>
-                        <Link href="me" passHref>
+                        <Link href="/me" passHref>
                             <UserClickableField suppressHydrationWarning>
                                 <AccountIcon />
                                 <Field>
@@ -132,7 +132,7 @@ const UserData = () => {
                         </Link>
                     </DataContainer>
                     {/* <Field suppressHydrationWarning>{`Деньги: ${!isLoading ? user?.money : 0}`}</Field> */}
-                    <LogOutBtn onClick={clickLogout}>Выйти</LogOutBtn>
+                    <Button onClick={clickLogout}>Выйти</Button>
                 </UserContainer>}
         </UserContainer>
     )
