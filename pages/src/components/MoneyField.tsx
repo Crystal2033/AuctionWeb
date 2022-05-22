@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Button, FormControl, InputAdornment, InputLabel, OutlinedInput } from '@mui/material';
 import { observer } from 'mobx-react-lite';
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { addMoney } from '../api/accountApi';
 import { useStore } from '../stores/useStoreContext';
@@ -25,9 +25,6 @@ const MyButton = styled(Button)`
 
 export const MoneyField = () => {
 
-
-
-
     const {
         register,
         handleSubmit,
@@ -36,13 +33,14 @@ export const MoneyField = () => {
 
     const { userStore } = useStore();
     const { user, isLoading } = userStore;
-
     useEffect(() => {
-        userStore.syncAccount();
+
     }, [user, userStore])
+
     const getDataFunc = (data: MoneyValue) => {
         data.money ?
             addMoney(data.money).then(() => {
+
 
             }).catch((e) => {
                 console.log(e);
@@ -62,8 +60,9 @@ export const MoneyField = () => {
                     startAdornment={<InputAdornment position="start">₽</InputAdornment>}
                     label="amount"
                     error={errors.money}
+
                 />
-                {errors.money && <span>Необходимо ввести значение</span>}
+
                 <MyButton type="submit" variant="contained" color="success">
                     Пополнить
                 </MyButton>

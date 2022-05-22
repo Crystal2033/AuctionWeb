@@ -20,7 +20,8 @@ const Container = styled.div`
 /////////////////////////////Account//////////////////////////
 
 const UserInfoContainer = styled.div`
-    padding-top: 20px;
+    //padding-top:20vh;
+    padding-top: 100px;
     display:flex;
     flex-direction:column;
     align-items:center;

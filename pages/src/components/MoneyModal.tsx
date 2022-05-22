@@ -13,11 +13,17 @@ const style = {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 300,
-    bgcolor: '#38958a',
-    border: '2px solid #298b47',
-    boxShadow: '0 0 10px #17c593',
+    bgcolor: '#266b83',
+    border: '2px solid #229b47',
+    boxShadow: '0 0 10px #e7f5f1',
     borderRadius: '5px',
     p: 4,
+    "& label.Mui-focused": {
+        color: "#89cdd1"
+
+    },
+
+
 };
 
 
