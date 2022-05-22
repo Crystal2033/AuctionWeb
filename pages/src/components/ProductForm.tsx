@@ -81,22 +81,22 @@ const ProductForm = () => {
         }
     }
 
-/*  */
+    /*  */
 
     return (
-        user?
+        user ?
             <StyledForm>
-                
-                    <StyledInputEmail placeholder="Название товара" onChange={(value) => {
-                        setProductData({ name: value });
-                    }} />
-                    {(productData?.name) ? <RegButton onClick={clickAutho}>Добавить</RegButton> : ""}
+
+                <StyledInputEmail placeholder="Название товара" onChange={(value) => {
+                    setProductData({ name: value });
+                }} />
+                {(productData?.name) ? <RegButton onClick={clickAutho}>Добавить</RegButton> : ""}
             </StyledForm>
-        : 
-            <HeaderSection> 
+            :
+            <HeaderSection>
                 Пользователь не авторизирован
             </HeaderSection>
-            
+
     )
 }
 

@@ -21,6 +21,6 @@ export type Product = {
 }
 
 export type Bet = {
-    id : string;
+    id: string;
     betSize: number;
 };

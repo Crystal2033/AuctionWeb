@@ -14,14 +14,14 @@ export const getUserProducts = (): Promise<AxiosResponse<ReadonlyArray<Product>>
 }
 
 
-export const addProduct = (name: string): Promise<AxiosResponse<{id: string, name: string}>> => {
-    debugger;
+export const addProduct = (name: string): Promise<AxiosResponse<{ id: string, name: string }>> => {
 
     const session = getSession()
     console.log(session?.token);
 
-    return axios.post(`${HOST}/api/products`, 
-        {"name":name}, 
-        {headers: {"x-access-token": session?.token || ""},}
-    );
+    return axios.post(`${HOST}/api/products`,
+        { "name": name },
+        {
+            headers: { "x-access-token": session?.token || "" },
+        });
 }
