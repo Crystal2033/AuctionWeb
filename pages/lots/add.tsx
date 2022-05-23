@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { NextPage } from "next/types";
 import { useEffect, useLayoutEffect, useState } from "react";
+import { addLot } from "../src/api/lotsApi";
 import { getUserProducts } from "../src/api/productsApi";
 import LotForm from "../src/components/LotForm";
 import MainHeader from "../src/components/MainHeader";
@@ -36,6 +37,7 @@ const Lots: NextPage = () => {
     const [bool, setbool] = useState(false);
     useEffect(() => {
         console.log(lotData);
+        addLot();
     }, [bool, lotData])
 
     if (typeof window !== 'undefined') {
