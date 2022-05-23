@@ -5,6 +5,8 @@ import { addLot } from "../src/api/lotsApi";
 import { getUserProducts } from "../src/api/productsApi";
 import LotForm from "../src/components/LotForm";
 import MainHeader from "../src/components/MainHeader";
+import ProductCard from "../src/components/ProductCard";
+import { useStore } from "../src/stores/useStoreContext";
 import { Product } from "../src/types/types";
 
 const PageHeader = styled.h1`
@@ -31,30 +33,43 @@ export type LotInfo = { // LotRequest
 }
 
 
+const ProductsContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+`
+
 
 const Lots: NextPage = () => {
     const [lotData, setLotData] = useState<LotInfo>();
     const [bool, setbool] = useState(false);
-    useEffect(() => {
-        console.log(lotData);
-        if (lotData?.name && lotData?.startPrice) {
-            addLot(lotData.name, lotData.startPrice);
-        }
-        
-    }, [bool, lotData])
+    const { userStore } = useStore();
+    const { user } = userStore;
+    const [products, setProducts] = useState<ReadonlyArray<Product>>([]);
+
+    const [chosenProds, setChosenProds] = useState<Array<string>>([]);
+
 
     if (typeof window !== 'undefined') {
         // eslint-disable-next-line react-hooks/rules-of-hooks
-        // useLayoutEffect(() => {
-        //     getUserProducts().then((data) => {
-        //         setProducts(data.data);
-        //     })
-        // }, []);
+        useLayoutEffect(() => {
+            getUserProducts().then((data) => {
+                setProducts(data.data);
+            })
+        }, []);
     }
-    // useEffect(() => {
-    //     console.log("Hello", lotinfo)
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [lotinfo])
+
+    useEffect(() => {
+        setProducts([]);
+    }, [user])
+
+    useEffect(() => {
+        console.log(lotData);
+        if (lotData?.name && lotData?.startPrice) {
+            //addLot(lotData.name, lotData.startPrice);
+            console.log(lotData);
+        }
+    }, [bool, lotData])
 
 
     return (
@@ -66,6 +81,19 @@ const Lots: NextPage = () => {
                     setLotData({ name: name, startPrice: price, productIds: lotData?.productIds ? lotData.productIds : [] });
                     setbool(true);
                 }} />
+
+                <ProductsContainer>
+                    {products.map((product) => (
+                        <ProductCard key={product.id} data={product} getId={(id: string) => {
+                            debugger;
+                            chosenProds.push(id);
+                            setChosenProds(chosenProds);
+                            debugger;
+
+                        }} />
+                    ))}
+                </ProductsContainer>
+
             </Container>
         </GlobalContainer>
     );

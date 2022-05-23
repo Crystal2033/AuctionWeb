@@ -52,7 +52,7 @@ const MainHeader = () => {
                     <HeaderItem>Добавить товар</HeaderItem>
                 </Link>
                 <Link href="/lots/add" passHref>
-                    <HeaderItem>Выставить лот</HeaderItem>
+                    <HeaderItem>Добавить лот</HeaderItem>
                 </Link>
                 <Link href="/" passHref>
                     <HeaderItem>Корзина</HeaderItem>

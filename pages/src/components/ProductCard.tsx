@@ -5,7 +5,8 @@ import styled from '@emotion/styled'
 import { observer } from 'mobx-react-lite'
 
 type Props = {
-    data: Product
+    data: Product,
+    getId?: (id: string) => void;
 }
 
 const Container = styled.div`
@@ -20,11 +21,12 @@ const MyCard = styled(Card)`
 `
 
 
-const ProductCard = ({ data }: Props) => {
+const ProductCard = ({ data, getId }: Props) => {
 
     const getInfo = () => {
-        console.log(data.name);
-        console.log(data.id);
+        // console.log(data.name);
+        // console.log(data.id);
+        getId ? getId(data.id) : "";
     }
 
 
