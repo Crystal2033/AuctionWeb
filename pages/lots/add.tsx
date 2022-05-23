@@ -65,10 +65,12 @@ const Lots: NextPage = () => {
 
     useEffect(() => {
         console.log(lotData);
-        if (lotData?.name && lotData?.startPrice) {
-            //addLot(lotData.name, lotData.startPrice);
-            console.log(lotData);
+        if (lotData?.name && lotData?.startPrice && lotData?.productIds) {
+
+            addLot(lotData.name, lotData.startPrice, lotData.productIds);
+
         }
+        console.assert("Error")
     }, [bool, lotData])
 
 
@@ -78,17 +80,15 @@ const Lots: NextPage = () => {
             <PageHeader >Добавить лот</PageHeader>
             <Container>
                 <LotForm setData={(name: string, price: number) => {
-                    setLotData({ name: name, startPrice: price, productIds: lotData?.productIds ? lotData.productIds : [] });
+                    setLotData({ name: name, startPrice: price, productIds: chosenProds });
                     setbool(true);
                 }} />
 
                 <ProductsContainer>
                     {products.map((product) => (
                         <ProductCard key={product.id} data={product} getId={(id: string) => {
-                            debugger;
                             chosenProds.push(id);
                             setChosenProds(chosenProds);
-                            debugger;
 
                         }} />
                     ))}

@@ -3,10 +3,10 @@ import { HOST } from "../../../config"
 import { Lot, User } from "../types/types"
 import { getSession } from "../utils/authKeyStorageService"
 
-export const addLot = (name: string, price: number): Promise<AxiosResponse<Lot>> => {
+export const addLot = (name: string, price: number, productsId: ReadonlyArray<string>): Promise<AxiosResponse<Lot>> => {
     const session = getSession();
     return axios.post(`${HOST}/api/lots/add`,
-        { "name": name, "startPrice": price, "productsId": [] },
+        { "name": name, "startPrice": price, "productsId": productsId },
         { headers: { "x-access-token": session?.token || "" } },
     )
 }
