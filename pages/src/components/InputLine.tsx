@@ -44,7 +44,7 @@ const InputLine = ({ placeholder, dataType, className, onChange }: Props) => {
 
     return (
         <BaseInput className={className} onChange={(ev: any) => {
-            onChange(ev.target.value)
+            onChange(ev.target.value) // SetLoginData(value)
         }} placeholder={placeholder} type={dataType} ></BaseInput>
     )
 }

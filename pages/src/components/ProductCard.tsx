@@ -13,6 +13,7 @@ const Container = styled.div`
 `
 
 
+
 const MyCard = styled(Card)`
     background-color: #344a71;
     margin:10px;
@@ -23,6 +24,7 @@ const ProductCard = ({ data }: Props) => {
 
     const getInfo = () => {
         console.log(data.name);
+        console.log(data.id);
     }
 
 

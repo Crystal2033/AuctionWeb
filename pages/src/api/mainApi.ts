@@ -15,7 +15,7 @@ export const getAccount = (): Promise<AxiosResponse<User>> => {
     })
 }
 
-export const getLots = ():  Promise<AxiosResponse<Array<Lot>>> => {
+export const getLots = (): Promise<AxiosResponse<Array<Lot>>> => {
     const session = getSession();
     console.log("Si");
     return axios.get(`${HOST}/api/account/products`, {
