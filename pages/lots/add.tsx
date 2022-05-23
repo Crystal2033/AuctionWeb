@@ -37,7 +37,10 @@ const Lots: NextPage = () => {
     const [bool, setbool] = useState(false);
     useEffect(() => {
         console.log(lotData);
-        addLot();
+        if (lotData?.name && lotData?.startPrice) {
+            addLot(lotData.name, lotData.startPrice);
+        }
+        
     }, [bool, lotData])
 
     if (typeof window !== 'undefined') {
