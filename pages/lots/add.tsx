@@ -10,7 +10,7 @@ import { useStore } from "../src/stores/useStoreContext";
 import { Product } from "../src/types/types";
 
 const PageHeader = styled.h1`
-    color: white;
+    color: #000000;
 `
 
 const Container = styled.div` //red
@@ -23,6 +23,7 @@ const GlobalContainer = styled.div` //blue
     display: flex;
     flex-direction:column;
     justify-content: center;
+    height: 100%;
 
 `
 
@@ -77,8 +78,9 @@ const Lots: NextPage = () => {
     return (
         <GlobalContainer>
             <MainHeader />
-            <PageHeader >Добавить лот</PageHeader>
+
             <Container>
+                <PageHeader >Добавить лот</PageHeader>
                 <LotForm setData={(name: string, price: number) => {
                     setLotData({ name: name, startPrice: price, productIds: chosenProds });
                     setbool(true);

@@ -46,19 +46,15 @@ const RegButton = styled.button`
 `
 
 const Main = styled.div`
-  align-items: center; // y
-  //justify-content: center; // x
-  //flex-direction: column;
-  justify-content: center;
-  height: 75vh;
-  display: flex;
-  margin: 0 auto;
+
+  height: 100%;
 `;
 
 const GlobalContainer = styled.div`
 display:flex;
 flex-direction: column;
 align-items:center;
+height: 100vh;
 `
 
 const StyledInputEmail = styled(InputLine)`
@@ -70,7 +66,7 @@ type LotInfo = {
 }
 
 const PageHeader = styled.h1`
-    color: white;
+    color: #000000;
 `
 
 const LotsSearcher: NextPage = () => {
@@ -87,7 +83,7 @@ const LotsSearcher: NextPage = () => {
     }
 
     return (
-        <div>
+        <Main>
             <MainHeader />
             <GlobalContainer>
 
@@ -107,7 +103,7 @@ const LotsSearcher: NextPage = () => {
                 </Container>
 
             </GlobalContainer>
-        </div>
+        </Main>
     );
 };
 

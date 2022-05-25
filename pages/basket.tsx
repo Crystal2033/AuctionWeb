@@ -14,7 +14,7 @@ import { useStore } from './src/stores/useStoreContext';
 import { Bet, Lot, Product } from './src/types/types';
 
 const GlobalContainer = styled.div`
-
+height: 100%;
 `
 
 const Container = styled.div`
@@ -53,24 +53,23 @@ const Basket: NextPage = () => {
     }, [user])
 
     return (
-
         <GlobalContainer>
             <MainHeader />
             <Container>
                 <Main>
                     {lots.map((lot) => (
                         <LotCard key={lot.id} data={lot} />
-                    ))};
+                    ))}
                 </Main>
                 <Main>
                     {products.map((product) => (
                         <ProductCard key={product.id} data={product} />
-                    ))};
+                    ))}
                 </Main>
                 <Main>
                     {bets.map((bet) => (
                         <BetCard key={bet.id} data={bet} />
-                    ))};
+                    ))}
                 </Main>
 
             </Container>

@@ -6,9 +6,10 @@ import FooterObj from "./src/components/Footer"
 import MainHeader from "./src/components/MainHeader"
 
 const Container = styled.div`
+height: 100%;
     display: flex;
   flex-direction: column;
-  height: 100%;
+  /* height: 100%; */
   justify-content: space-between;
 `
 

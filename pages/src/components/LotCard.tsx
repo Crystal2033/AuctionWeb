@@ -8,11 +8,16 @@ type Props = {
 }
 
 const MyCard = styled(Card)`
-    background-color: #344a71;
+    background: linear-gradient(to bottom right, #617bcc, #5ea78b);
+
     margin:10px;
     width: 100vw;
 
     
+`
+
+const MyCardActions = styled(CardActions)`
+justify-content:center;
 `
 
 export const LotCard = ({ data }: Props) => {
@@ -44,9 +49,9 @@ export const LotCard = ({ data }: Props) => {
                 </Typography>
 
             </CardContent>
-            <CardActions>
+            <MyCardActions>
                 <Button size="small">Поместить в лот</Button>
-            </CardActions>
+            </MyCardActions>
         </MyCard>
 
     )

@@ -14,53 +14,6 @@ import router from 'next/router';
 import { LotInfo } from '../../lots/add';
 import { useForm } from 'react-hook-form';
 
-const RegButton = styled.button`
-    font-family: sans-serif;
-    color: white;
-    font-size: 15px;
-    display:block;
-
-    padding: .8em 2em calc(.8em + 3px);
-    margin-top: .5em;
-    border-radius: 10px;
-    background: #056ee4;
-    transition: 0.2s;
-    :hover { background: #034692; }
-    :disabled {
-        background-color: #282727;
-        color: #fcfcfc;
-    }
-`
-
-const StyledInputEmail = styled(InputLine)`
-    border-radius: 10px 10px 0 0;
-`
-
-const StyledInputPass = styled(InputLine)`
-    border-radius: 0 0 10px 10px;
-  
-`
-const StyledForm = styled.div`
-    display:flex;
-    flex-direction:column;
-    padding: 30px;
-    font-size: 14px;
-    background-color: #1a232f;
-    border: 2px solid #303945;
-    border-radius: 10px;
-`
-
-const HeaderSection = styled.div`
-    display: flex;
-    align-items:center;
-    flex-wrap:wrap;
-    color:white;
-    font-size: 20px;
-`
-
-const PageHeader = styled.h1`
-    color: white;
-`
 
 type Props = {
     setData: (name: string, price: number) => void;
@@ -112,7 +65,6 @@ const LotForm = ({ setData }: Props) => {
 
 
     const getDataFunc = (data: InputData) => {
-        debugger;
         if (typeof data !== 'undefined') {
             if (typeof data.inputName !== 'undefined' && typeof data.inputStartPrice !== 'undefined') {
                 setData(data.inputName, data.inputStartPrice);

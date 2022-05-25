@@ -9,7 +9,9 @@ import MainHeader from './src/components/MainHeader';
 import { useStore } from './src/stores/useStoreContext';
 import { Bet } from './src/types/types';
 
-const Container = styled.div``
+const Container = styled.div`
+height: 100%;
+`
 
 const Main = styled.main`
   align-items: center; // y
@@ -44,10 +46,10 @@ const Bets: NextPage = () => {
             <Main>
                 {bets.map((bet) => (
                     <BetCard key={bet.id} data={bet} />
-                ))};
+                ))}
             </Main>
         </Container >
-    );
+    )
 };
 
 export default observer(Bets);

@@ -19,9 +19,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       styles={css`
           body {
             /* background-color: rgb(37, 36, 36); */
-             background-color: #0d0e15;
-            /* background: linear-gradient(45deg, #e76712, #0aa5ec); */
-            height: 100vh;
+             /* background-color: #0d0e15; */
+             background: linear-gradient(to top, black, cyan);
+            height: 100%;
             font-family: -apple-system, BlinkMascSystemFont, Segoe UI, Roboto, Oxygen,
                           Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 

@@ -17,7 +17,11 @@ const Container = styled.div`
 `
 
 const PageHeader = styled.h1`
-    color: white;
+    color: #000000;
+`
+
+const MainDiv = styled.div`
+height: 100%;
 `
 
 const Lots: NextPage = () => {
@@ -39,7 +43,7 @@ const Lots: NextPage = () => {
     }, [user])
 
     return (
-        <div>
+        <MainDiv>
             <MainHeader />
             <Container>
                 <PageHeader >Мои лоты</PageHeader>
@@ -47,7 +51,7 @@ const Lots: NextPage = () => {
                     <LotCard key={lot.name} data={lot} />
                 ))}
             </Container >
-        </div>
+        </MainDiv>
     );
 };
 

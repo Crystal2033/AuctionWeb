@@ -16,6 +16,8 @@ const Main = styled.main`
 `;
 
 const Container = styled.div`
+height: 100%;
+ 
 `;
 
 
@@ -25,9 +27,9 @@ const Login: NextPage = () => {
     <Container>
       <MainHeader />
       <Main>
-        <Container>
-          <LoginForm />
-        </Container>
+
+        <LoginForm />
+
       </Main >
     </Container>
   )

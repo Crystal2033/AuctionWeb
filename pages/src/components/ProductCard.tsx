@@ -13,10 +13,15 @@ const Container = styled.div`
 
 `
 
-
+const MyButton = styled(Button)`
+color:#6a598f;
+:hover{
+    
+}
+`
 
 const MyCard = styled(Card)`
-    background-color: #344a71;
+    background: linear-gradient(to bottom right, #ebe03a, #c84141);
     margin:10px;
 `
 
@@ -45,7 +50,7 @@ const ProductCard = ({ data, getId }: Props) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button onClick={getInfo} size="small">Поместить в лот</Button>
+                    <MyButton onClick={getInfo} size="small">Поместить в лот</MyButton>
                 </CardActions>
             </MyCard>
         </Container>

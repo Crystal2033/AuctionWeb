@@ -22,11 +22,14 @@ const GlobalContainer = styled.div`
  flex-direction: column;
  align-items: center;
 `
+const MainDiv = styled.div`
+height: 100%;
+`
 
 const Login: NextPage = () => {
 
   return (
-    <div>
+    <MainDiv>
       <MainHeader />
       <GlobalContainer>
         <Container>
@@ -34,7 +37,7 @@ const Login: NextPage = () => {
           <ProductForm />
         </Container>
       </GlobalContainer>
-    </div>
+    </MainDiv>
   )
 }
 
