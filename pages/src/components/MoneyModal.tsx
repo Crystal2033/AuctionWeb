@@ -45,7 +45,6 @@ const MoneyModal = () => {
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
-
         setOpen(true)
     };
     const handleClose = () => {
@@ -66,7 +65,7 @@ const MoneyModal = () => {
                         Введите сумму
                     </Typography>
                     <ContainerModal>
-                        <MoneyField />
+                        <MoneyField message="Пополнить"/>
                     </ContainerModal>
                 </Box>
             </Modal>
