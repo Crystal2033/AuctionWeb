@@ -54,18 +54,18 @@ const MainHeader = () => {
                 <Link href="/lots/add" passHref>
                     <HeaderItem>Добавить лот</HeaderItem>
                 </Link>
-                <Link href="/" passHref>
+                <Link href="/basket" passHref>
                     <HeaderItem>Корзина</HeaderItem>
                 </Link>
-                <Link href="/products" passHref>
+                {/* <Link href="/products" passHref>
                     <HeaderItem className="active">Мои товары</HeaderItem>
-                </Link>
-                <Link href="/lots/my" passHref>
+                </Link> */}
+                {/* <Link href="/lots/my" passHref>
                     <HeaderItem>Мои лоты</HeaderItem>
-                </Link>
-                <Link href="/bets" passHref>
+                </Link> */}
+                {/* <Link href="/bets" passHref>
                     <HeaderItem>Мои ставки</HeaderItem>
-                </Link>
+                </Link> */}
             </HeaderSection>
 
             <HeaderSection>

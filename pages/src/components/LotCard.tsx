@@ -4,7 +4,7 @@ import React from 'react'
 import { Lot } from '../types/types'
 
 type Props = {
-    lot: Lot
+    data: Lot
 }
 
 const MyCard = styled(Card)`
@@ -15,7 +15,7 @@ const MyCard = styled(Card)`
     
 `
 
-export const LotCard = ({ lot }: Props) => {
+export const LotCard = ({ data }: Props) => {
     return (
 
         <MyCard sx={{ maxWidth: 345 }}>
@@ -27,19 +27,19 @@ export const LotCard = ({ lot }: Props) => {
             /> */}
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    {lot.name}
+                    {data.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     <div>
                         <h2>Содержание:</h2>
-                        {lot.lotProducts.map((product) => (
+                        {data.lotProducts.map((product) => (
                             // eslint-disable-next-line react/jsx-key
                             <div> {product.name}</div>
                         ))}
                         <h3>Шаг ставки</h3>
-                        <div>{lot.bidStep}</div>
+                        <div>{data.bidStep}</div>
                         <h3>Начальная цена</h3>
-                        <div>{lot.startPrice}</div>
+                        <div>{data.startPrice}</div>
                     </div>
                 </Typography>
 

@@ -44,7 +44,7 @@ const Lots: NextPage = () => {
             <Container>
                 <PageHeader >Мои лоты</PageHeader>
                 {lots.map((lot) => (
-                    <LotCard key={lot.name} lot={lot} />
+                    <LotCard key={lot.name} data={lot} />
                 ))}
             </Container >
         </div>

@@ -102,7 +102,7 @@ const LotsSearcher: NextPage = () => {
                     </StyledForm>
 
                     {lots.map((lot) => (
-                        <LotCard key={lot.name} lot={lot} />
+                        <LotCard key={lot.name} data={lot} />
                     ))}
                 </Container>
 
