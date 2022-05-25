@@ -43,6 +43,14 @@ align-items:center;
 background-color: #367c57;
 `
 
+const HeaderSection = styled.div`
+    display: flex;
+    align-items:center;
+    flex-wrap:wrap;
+    color:white;
+    font-size: 20px;
+`
+
 const MyInput = styled(Input)`
     margin: 5px;
 `
@@ -74,37 +82,41 @@ const LotForm = ({ setData }: Props) => {
     };
 
     return (
-        <Container>
-            <Form onSubmit={handleSubmit(getDataFunc)}>
-                <MyInput
-                    id="standard-adornment-weight"
-                    endAdornment={<InputAdornment position="end">Название</InputAdornment>}
-                    aria-describedby="standard-weight-helper-text"
-                    {...register("inputName", { required: true })}
-                    inputProps={{
-                        'aria-label': 'Название',
-                    }}
-                />
+        user ?
+            <Container>
+                <Form onSubmit={handleSubmit(getDataFunc)}>
+                    <MyInput
+                        id="standard-adornment-weight"
+                        endAdornment={<InputAdornment position="end">Название</InputAdornment>}
+                        aria-describedby="standard-weight-helper-text"
+                        {...register("inputName", { required: true })}
+                        inputProps={{
+                            'aria-label': 'Название',
+                        }}
+                    />
 
-                <MyInput
-                    id="standard-adornment-weight"
+                    <MyInput
+                        id="standard-adornment-weight"
 
-                    endAdornment={<InputAdornment position="end">Стартовая цена</InputAdornment>}
-                    aria-describedby="standard-weight-helper-text"
-                    {...register("inputStartPrice", { required: true })}
-                    inputProps={{
-                        'aria-label': 'Цена',
-                    }}
-                />
+                        endAdornment={<InputAdornment position="end">Стартовая цена</InputAdornment>}
+                        aria-describedby="standard-weight-helper-text"
+                        {...register("inputStartPrice", { required: true })}
+                        inputProps={{
+                            'aria-label': 'Цена',
+                        }}
+                    />
 
 
-                <MyButton type="submit" variant="contained" color="success">
-                    Добавить лот
-                </MyButton>
+                    <MyButton type="submit" variant="contained" color="success">
+                        Добавить лот
+                    </MyButton>
 
-            </Form>
+                </Form>
 
-        </Container>
+            </Container> :
+            <HeaderSection>
+                Пользователь не авторизирован
+            </HeaderSection>
 
 
         // user ?

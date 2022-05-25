@@ -36,6 +36,17 @@ const PageHeader = styled.h1`
     margin-left: 770px;
 `
 
+const HeaderSection = styled.div`
+    display: flex;
+    align-items:center;
+    flex-wrap:wrap;
+    color:white;
+    font-size: 20px;
+`
+
+const BasketDiv = styled.div`
+    align-items: center;
+`
 
 const Basket: NextPage = () => {
     const [bets, setBets] = useState<ReadonlyArray<Bet>>([]);
@@ -63,9 +74,11 @@ const Basket: NextPage = () => {
     }, [user])
 
     return (
+
         <GlobalContainer>
             <MainHeader />
             <PageHeader>Моя корзина</PageHeader>
+
             <Container>
 
                 <Main>
@@ -83,7 +96,6 @@ const Basket: NextPage = () => {
                         <BetCard key={bet.id} data={bet} />
                     ))}
                 </Main>
-
             </Container>
         </GlobalContainer >
     );
