@@ -71,8 +71,6 @@ const ProductForm = () => {
     const { userStore } = useStore();
     const { user, isLoading } = userStore;
 
-    const router = useRouter();
-
     const clickAutho = () => {
 
         if (productData?.name) {
@@ -80,8 +78,6 @@ const ProductForm = () => {
             addProduct(productData.name);
         }
     }
-
-    /*  */
 
     return (
         user ?

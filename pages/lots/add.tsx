@@ -10,7 +10,7 @@ import { useStore } from "../src/stores/useStoreContext";
 import { Product } from "../src/types/types";
 
 const PageHeader = styled.h1`
-    color: #000000;
+    color: white;
 `
 
 const Container = styled.div` //red

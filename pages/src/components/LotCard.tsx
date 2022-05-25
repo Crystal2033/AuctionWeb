@@ -4,15 +4,29 @@ import React, { useState } from 'react'
 import { Lot } from '../types/types'
 import { Box, Button, Card, CardContent, Modal, Typography } from "@mui/material";
 import MoneyField from './MoneyField';
+import { FaDatabase } from 'react-icons/fa';
 
 type Props = {
     data: Lot
 }
 
 const MyCard = styled(Card)`
-    background-color: #344a71;
+    background: linear-gradient(to bottom right, #617bcc, #5ea78b);
     margin:10px;
     width: 100vw;
+`
+
+const DataBaseIcon = styled(FaDatabase)`
+    opacity: 0.5;
+    margin-right: 10px;
+    color:black;
+`
+const DataBaseContainer = styled.div`
+opacity: 0.5;
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    color:black;
 `
 
 const ContainerModal = styled.div`
@@ -75,24 +89,30 @@ export const LotCard = ({ data }: Props) => {
                         <div>{data.startPrice}</div>
                     </div>
                 </Typography>
+                <Typography fontSize={14} component="div">
+                    <DataBaseContainer>
+                        <DataBaseIcon />
+                        {data.id}
+                    </DataBaseContainer>
+                </Typography>
 
                 <SetMoneyBtn onClick={handleOpen} variant="outlined" color="success">Сделать ставку</SetMoneyBtn>
                 <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
                 >
                     <Box sx={style}>
                         <Typography id="modal-modal-title" variant="h6" component="h2" align="center" paddingBottom='10px'>
                             Введите сумму
                         </Typography>
                         <ContainerModal>
-                            <MoneyField message="Сделать ставку" lotId={data.id}/>
+                            <MoneyField message="Сделать ставку" lotId={data.id} />
                         </ContainerModal>
                     </Box>
                 </Modal>
-              
+
             </CardContent>
         </MyCard>
 

@@ -16,7 +16,7 @@ const Container = styled.div`
 
 
 const PageHeader = styled.h1`
-    color: #000000;
+    color: white;
 `
 const MainDiv = styled.div`
 height: 100%;

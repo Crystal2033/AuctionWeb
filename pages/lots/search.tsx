@@ -66,7 +66,7 @@ type LotInfo = {
 }
 
 const PageHeader = styled.h1`
-    color: #000000;
+    color: white;
 `
 
 const LotsSearcher: NextPage = () => {

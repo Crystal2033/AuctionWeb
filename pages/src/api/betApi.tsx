@@ -13,12 +13,13 @@ export const getUserBets = (): Promise<AxiosResponse<ReadonlyArray<Bet>>> => {
     });
 }
 
-export const addBet = (money: number, lotId:string) : Promise<AxiosResponse<Bet>> => {
+export const addBet = (money: number, lotId: string): Promise<AxiosResponse<Bet>> => {
     debugger;
     const session = getSession()
     console.log(session?.token);
     return axios.post(`${HOST}/api/bets`,
-        { "betSize": money, "lotId": lotId, "id" : ""},
-        {headers: {"x-access-token": session?.token || ""}
-    });
+        { "betSize": money, "lotId": lotId, "id": "1" },
+        {
+            headers: { "x-access-token": session?.token || "" }
+        });
 }

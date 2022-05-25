@@ -89,7 +89,7 @@ const LotForm = ({ setData }: Props) => {
                 <MyInput
                     id="standard-adornment-weight"
 
-                    endAdornment={<InputAdornment position="end">Цена</InputAdornment>}
+                    endAdornment={<InputAdornment position="end">Стартовая цена</InputAdornment>}
                     aria-describedby="standard-weight-helper-text"
                     {...register("inputStartPrice", { required: true })}
                     inputProps={{

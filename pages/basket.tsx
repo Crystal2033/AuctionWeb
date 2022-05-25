@@ -15,6 +15,10 @@ import { Bet, Lot, Product } from './src/types/types';
 
 const GlobalContainer = styled.div`
 height: 100%;
+align-items:center;
+/* display: flex;
+flex-direction:column;
+align-items:center; */
 `
 
 const Container = styled.div`
@@ -25,6 +29,12 @@ justify-content: space-around;
 
 const Main = styled.main`
 `;
+
+
+const PageHeader = styled.h1`
+    color: white;
+    margin-left: 770px;
+`
 
 
 const Basket: NextPage = () => {
@@ -55,7 +65,9 @@ const Basket: NextPage = () => {
     return (
         <GlobalContainer>
             <MainHeader />
+            <PageHeader>Моя корзина</PageHeader>
             <Container>
+
                 <Main>
                     {lots.map((lot) => (
                         <LotCard key={lot.id} data={lot} />
