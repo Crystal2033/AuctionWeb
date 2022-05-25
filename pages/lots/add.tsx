@@ -29,7 +29,7 @@ const GlobalContainer = styled.div` //blue
 export type LotInfo = { // LotRequest
     name: string,
     startPrice: number,
-    productIds: ReadonlyArray<string>
+    productIds: Array<string>
 }
 
 
@@ -67,6 +67,7 @@ const Lots: NextPage = () => {
         console.log(lotData);
         if (lotData?.name && lotData?.startPrice) {
             //addLot(lotData.name, lotData.startPrice);
+            debugger;
             console.log(lotData);
         }
     }, [bool, lotData])
@@ -78,7 +79,7 @@ const Lots: NextPage = () => {
             <PageHeader >Добавить лот</PageHeader>
             <Container>
                 <LotForm setData={(name: string, price: number) => {
-                    setLotData({ name: name, startPrice: price, productIds: lotData?.productIds ? lotData.productIds : [] });
+                    setLotData({ name: name, startPrice: price, productIds: lotData?.productIds ? lotData.productIds : chosenProds});
                     setbool(true);
                 }} />
 
@@ -89,7 +90,6 @@ const Lots: NextPage = () => {
                             chosenProds.push(id);
                             setChosenProds(chosenProds);
                             debugger;
-
                         }} />
                     ))}
                 </ProductsContainer>
