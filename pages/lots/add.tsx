@@ -29,7 +29,7 @@ const GlobalContainer = styled.div` //blue
 export type LotInfo = { // LotRequest
     name: string,
     startPrice: number,
-    productIds: Array<string>
+    productIds: ReadonlyArray<string>
 }
 
 
@@ -65,11 +65,12 @@ const Lots: NextPage = () => {
 
     useEffect(() => {
         console.log(lotData);
-        if (lotData?.name && lotData?.startPrice) {
-            //addLot(lotData.name, lotData.startPrice);
-            debugger;
-            console.log(lotData);
+        if (lotData?.name && lotData?.startPrice && lotData?.productIds) {
+
+            addLot(lotData.name, lotData.startPrice, lotData.productIds);
+
         }
+        console.assert("Error")
     }, [bool, lotData])
 
 
@@ -79,17 +80,16 @@ const Lots: NextPage = () => {
             <PageHeader >Добавить лот</PageHeader>
             <Container>
                 <LotForm setData={(name: string, price: number) => {
-                    setLotData({ name: name, startPrice: price, productIds: lotData?.productIds ? lotData.productIds : chosenProds});
+                    setLotData({ name: name, startPrice: price, productIds: chosenProds });
                     setbool(true);
                 }} />
 
                 <ProductsContainer>
                     {products.map((product) => (
                         <ProductCard key={product.id} data={product} getId={(id: string) => {
-                            debugger;
                             chosenProds.push(id);
                             setChosenProds(chosenProds);
-                            debugger;
+
                         }} />
                     ))}
                 </ProductsContainer>

@@ -1,7 +1,7 @@
 import styled from '@emotion/styled'
 import type { NextPage } from 'next'
 import { useLayoutEffect, useState } from 'react';
-import { getAllLots} from '../src/api/lotsApi';
+import { getAllLots } from '../src/api/lotsApi';
 import { LotCard } from '../src/components/LotCard';
 import MainHeader from '../src/components/MainHeader';
 import { Lot } from '../src/types/types';
@@ -37,7 +37,7 @@ const Lots: NextPage = () => {
             <Container>
                 <PageHeader >Все лоты</PageHeader>
                 {lots.map((lot) => (
-                    <LotCard key={lot.name} lot={lot} />
+                    <LotCard key={lot.name} data={lot} />
                 ))}
             </Container >
         </div>
